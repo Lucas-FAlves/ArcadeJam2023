@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class MeleeHandler : MonoBehaviour
 {
-    public List<Collider2D> inRange;
+    public Collider2D[] inRange;
     private float rangeRadius = 4f;
     [SerializeField] private LayerMask layerMask;
     
     private void Update() 
     { 
-        inRange = Physics2D.OverlapCircle(gameObject.transform.position, rangeRadius, layerMask).results;
+        inRange = Physics2D.OverlapCircleAll(gameObject.transform.position, rangeRadius, layerMask);
     }
+
+    
 }
