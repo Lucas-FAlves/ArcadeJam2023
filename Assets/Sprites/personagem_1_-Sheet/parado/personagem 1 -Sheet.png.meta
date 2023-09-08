@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a70abd0de7d304347b9b8922365a54b7
+guid: 44dee6dcddc653449afa6c5d69a852a4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,12 +123,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: personagem 1 correno-Sheet_0
+      name: personagem 1 -Sheet_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 255
-        width: 26
+        x: 0
+        y: 192
+        width: 16
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -137,19 +137,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7bf32f87a8a19849a78116d66bd3c53
-      internalID: -1268058385
+      spriteID: 6cb2abc79a1b3a246af83c263ca10558
+      internalID: 1682986234
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: personagem 1 correno-Sheet_1
+      name: personagem 1 -Sheet_1
       rect:
         serializedVersion: 2
-        x: 42
-        y: 255
-        width: 26
+        x: 32
+        y: 192
+        width: 16
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -158,19 +158,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f4a34f27922d7a4c94032d7a3477107
-      internalID: 1508982948
+      spriteID: 42cc8c0e281c2ec4ab0467948bef46c1
+      internalID: 1452800556
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: personagem 1 correno-Sheet_2
+      name: personagem 1 -Sheet_2
       rect:
         serializedVersion: 2
-        x: 74
-        y: 255
-        width: 26
+        x: 64
+        y: 192
+        width: 16
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -179,19 +179,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 08d113ca14181b141afb15c26e5df110
-      internalID: -699378150
+      spriteID: 3364da5b700570d41b05944980481705
+      internalID: -849610907
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: personagem 1 correno-Sheet_3
+      name: personagem 1 -Sheet_3
       rect:
         serializedVersion: 2
-        x: 106
-        y: 255
-        width: 26
+        x: 96
+        y: 192
+        width: 16
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -200,19 +200,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5a523fbc40da5d4e94333d36fe4ebd6
-      internalID: 869024867
+      spriteID: 7d92d6676477edb47a5a7b057bc232f4
+      internalID: -2089177823
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: personagem 1 correno-Sheet_4
+      name: personagem 1 -Sheet_4
       rect:
         serializedVersion: 2
-        x: 138
-        y: 255
-        width: 26
+        x: 128
+        y: 192
+        width: 16
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -221,19 +221,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74eeff49b2e281145b850744e35ee236
-      internalID: -1091456833
+      spriteID: f8f8c301336c53944afd0ca9f3d15920
+      internalID: 2052694971
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: personagem 1 correno-Sheet_5
+      name: personagem 1 -Sheet_5
       rect:
         serializedVersion: 2
-        x: 10
-        y: 207
-        width: 26
+        x: 0
+        y: 144
+        width: 16
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -242,19 +242,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 354c7abb8a0b8084cbd552c231169b67
-      internalID: 1465898352
+      spriteID: a1921d40f1f496344ba88768b7de2c7b
+      internalID: 818366658
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: personagem 1 correno-Sheet_6
+      name: personagem 1 -Sheet_6
       rect:
         serializedVersion: 2
-        x: 42
-        y: 207
-        width: 26
+        x: 32
+        y: 144
+        width: 16
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -263,19 +263,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55aea7d83f6bf5744bcc9bf2876939d1
-      internalID: -1003977010
+      spriteID: b0da2c7619972cf4babae344c680eec1
+      internalID: -1024311515
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: personagem 1 correno-Sheet_7
+      name: personagem 1 -Sheet_7
       rect:
         serializedVersion: 2
-        x: 74
-        y: 207
-        width: 26
+        x: 64
+        y: 144
+        width: 16
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -284,19 +284,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 672e7b813ab6d7b439193865cf0c7c94
-      internalID: -311956130
+      spriteID: 777dbaaaed89d1a4c903d76568cc1042
+      internalID: -1811526161
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: personagem 1 correno-Sheet_8
+      name: personagem 1 -Sheet_8
       rect:
         serializedVersion: 2
-        x: 106
-        y: 207
-        width: 26
+        x: 96
+        y: 144
+        width: 16
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -305,19 +305,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4485bfa58594fd544919d85a41839d15
-      internalID: 1440155036
+      spriteID: a7b91098fe4ea2641b7024f165129605
+      internalID: 900546622
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: personagem 1 correno-Sheet_9
+      name: personagem 1 -Sheet_9
       rect:
         serializedVersion: 2
-        x: 138
-        y: 207
-        width: 26
+        x: 128
+        y: 144
+        width: 16
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -326,19 +326,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70889deed6e48b042b4544c7848c4054
-      internalID: 1939598164
+      spriteID: 4b89100dca678bd438e175f22658386e
+      internalID: 168181645
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: personagem 1 correno-Sheet_10
+      name: personagem 1 -Sheet_10
       rect:
         serializedVersion: 2
-        x: 10
-        y: 159
-        width: 26
+        x: 0
+        y: 96
+        width: 16
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -347,19 +347,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04492b147a5a4814189084c0caf4e28e
-      internalID: -1718576418
+      spriteID: 3b998bc8656e26346a2613f7ef0675be
+      internalID: -1739072111
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: personagem 1 correno-Sheet_11
+      name: personagem 1 -Sheet_11
       rect:
         serializedVersion: 2
-        x: 42
-        y: 159
-        width: 26
+        x: 32
+        y: 96
+        width: 16
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -368,19 +368,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01914c8c012792d4e9ab1d24e4b3285f
-      internalID: -1320127352
+      spriteID: c8baafbf3b0b23240aab62c11adb4a32
+      internalID: 327506630
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: personagem 1 correno-Sheet_12
+      name: personagem 1 -Sheet_12
       rect:
         serializedVersion: 2
-        x: 74
-        y: 159
-        width: 26
+        x: 64
+        y: 96
+        width: 16
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -389,19 +389,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b924a7becbe72b34e99662eb9b83a210
-      internalID: 873385724
+      spriteID: 7613f19155baa9f4d893abeb1a973cad
+      internalID: 2015054078
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: personagem 1 correno-Sheet_13
+      name: personagem 1 -Sheet_13
       rect:
         serializedVersion: 2
-        x: 106
-        y: 159
-        width: 26
+        x: 96
+        y: 96
+        width: 16
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -410,19 +410,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a37b9f5b329bf14199a305c23a6a2f5
-      internalID: -1588047447
+      spriteID: 4c1c0100905e0a94d840ec94aa56bb4c
+      internalID: -1513645970
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: personagem 1 correno-Sheet_14
+      name: personagem 1 -Sheet_14
       rect:
         serializedVersion: 2
-        x: 138
-        y: 159
-        width: 26
+        x: 128
+        y: 96
+        width: 16
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -431,19 +431,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03f213c3e91c9f348b4cb16ff9fa3e7b
-      internalID: -1307603639
+      spriteID: f57bbac7b985d3e4885267fac6fe86de
+      internalID: -385332660
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: personagem 1 correno-Sheet_15
+      name: personagem 1 -Sheet_15
       rect:
         serializedVersion: 2
-        x: 10
-        y: 111
-        width: 26
+        x: 0
+        y: 48
+        width: 16
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -452,19 +452,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a471172080bffa49b4ede12f0413123
-      internalID: 217985042
+      spriteID: aa94ff5951d1f6a4b9a8ef4d979894cc
+      internalID: -618864791
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: personagem 1 correno-Sheet_16
+      name: personagem 1 -Sheet_16
       rect:
         serializedVersion: 2
-        x: 42
-        y: 111
-        width: 26
+        x: 32
+        y: 48
+        width: 16
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -473,19 +473,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e1b44f944749b746bbe12f5f61a4806
-      internalID: 478451368
+      spriteID: bbfe4fbc176ea744ba1f640d13bb44f4
+      internalID: 238818632
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: personagem 1 correno-Sheet_17
+      name: personagem 1 -Sheet_17
       rect:
         serializedVersion: 2
-        x: 74
-        y: 111
-        width: 26
+        x: 64
+        y: 48
+        width: 16
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -494,19 +494,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60f703075ac54014197eae023fb6ab43
-      internalID: 1886655253
+      spriteID: 6546848976302334bac858147186d4b5
+      internalID: 375047521
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: personagem 1 correno-Sheet_18
+      name: personagem 1 -Sheet_18
       rect:
         serializedVersion: 2
-        x: 106
-        y: 111
-        width: 26
+        x: 96
+        y: 48
+        width: 16
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -515,19 +515,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b176cdfbd0fcaf4faea03a55eae0846
-      internalID: -1428648465
+      spriteID: 4d19ed40865acb749bca4b992e2948c6
+      internalID: 1680434979
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: personagem 1 correno-Sheet_19
+      name: personagem 1 -Sheet_19
       rect:
         serializedVersion: 2
-        x: 138
-        y: 111
-        width: 26
+        x: 128
+        y: 48
+        width: 16
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -536,19 +536,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ea8c9abadbd7b0498c17763c6bddec6
-      internalID: -286136968
+      spriteID: 00e52a5c4d039bc43a8112ceb8867243
+      internalID: 772443440
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: personagem 1 correno-Sheet_20
+      name: personagem 1 -Sheet_20
       rect:
         serializedVersion: 2
-        x: 10
-        y: 63
-        width: 26
+        x: 0
+        y: 0
+        width: 16
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -557,19 +557,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f87bcdf64097c2a4593abc46c5b8f70f
-      internalID: -1096887062
+      spriteID: 4bde9c22c9037e344b4b32e7044f1b2d
+      internalID: -1490614596
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: personagem 1 correno-Sheet_21
+      name: personagem 1 -Sheet_21
       rect:
         serializedVersion: 2
-        x: 42
-        y: 63
-        width: 26
+        x: 32
+        y: 0
+        width: 16
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -578,19 +578,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f560d023f1e36742846335720fd9230
-      internalID: -569644789
+      spriteID: e44b762469021494c8f360628f1db7d4
+      internalID: -229479548
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: personagem 1 correno-Sheet_22
+      name: personagem 1 -Sheet_22
       rect:
         serializedVersion: 2
-        x: 74
-        y: 63
-        width: 26
+        x: 64
+        y: 0
+        width: 16
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -599,19 +599,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a920a9153386c8c4297616c435cb8658
-      internalID: -441819232
+      spriteID: 590a9bdea209e4b4da4dc73ccb3161c6
+      internalID: 756579350
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: personagem 1 correno-Sheet_23
+      name: personagem 1 -Sheet_23
       rect:
         serializedVersion: 2
-        x: 106
-        y: 63
-        width: 26
+        x: 96
+        y: 0
+        width: 16
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -620,19 +620,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1cd3163da23300e4891ae198f9ec5291
-      internalID: -1548252200
+      spriteID: 74ea809f43b81794d8d1840b85aaa661
+      internalID: 1470145230
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: personagem 1 correno-Sheet_24
+      name: personagem 1 -Sheet_24
       rect:
         serializedVersion: 2
-        x: 138
-        y: 63
-        width: 26
+        x: 128
+        y: 0
+        width: 16
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -641,113 +641,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 454ccc26889e62c46886c6103e8fbcf7
-      internalID: -180439567
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: personagem 1 correno-Sheet_25
-      rect:
-        serializedVersion: 2
-        x: 10
-        y: 15
-        width: 26
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6d07aeb2c4d06ff4ea33929867482549
-      internalID: 1737515650
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: personagem 1 correno-Sheet_26
-      rect:
-        serializedVersion: 2
-        x: 42
-        y: 15
-        width: 26
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 571935545c957a7469561bcbe52f3c09
-      internalID: 2010958164
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: personagem 1 correno-Sheet_27
-      rect:
-        serializedVersion: 2
-        x: 74
-        y: 15
-        width: 26
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d553bbca599b8124d9d3520c7eabdab9
-      internalID: 1479343306
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: personagem 1 correno-Sheet_28
-      rect:
-        serializedVersion: 2
-        x: 106
-        y: 15
-        width: 26
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 12a64a22f138f3e49a19a72592c22482
-      internalID: -1101216658
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: personagem 1 correno-Sheet_29
-      rect:
-        serializedVersion: 2
-        x: 138
-        y: 15
-        width: 26
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 51499e0e226b2214c93806830a1239ac
-      internalID: -1476952913
+      spriteID: a7e3412bb2b40464bbf06195b7349e0d
+      internalID: -1969671395
       vertices: []
       indices: 
       edges: []
@@ -763,36 +658,31 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      personagem 1 correno-Sheet_0: -1268058385
-      personagem 1 correno-Sheet_1: 1508982948
-      personagem 1 correno-Sheet_10: -1718576418
-      personagem 1 correno-Sheet_11: -1320127352
-      personagem 1 correno-Sheet_12: 873385724
-      personagem 1 correno-Sheet_13: -1588047447
-      personagem 1 correno-Sheet_14: -1307603639
-      personagem 1 correno-Sheet_15: 217985042
-      personagem 1 correno-Sheet_16: 478451368
-      personagem 1 correno-Sheet_17: 1886655253
-      personagem 1 correno-Sheet_18: -1428648465
-      personagem 1 correno-Sheet_19: -286136968
-      personagem 1 correno-Sheet_2: -699378150
-      personagem 1 correno-Sheet_20: -1096887062
-      personagem 1 correno-Sheet_21: -569644789
-      personagem 1 correno-Sheet_22: -441819232
-      personagem 1 correno-Sheet_23: -1548252200
-      personagem 1 correno-Sheet_24: -180439567
-      personagem 1 correno-Sheet_25: 1737515650
-      personagem 1 correno-Sheet_26: 2010958164
-      personagem 1 correno-Sheet_27: 1479343306
-      personagem 1 correno-Sheet_28: -1101216658
-      personagem 1 correno-Sheet_29: -1476952913
-      personagem 1 correno-Sheet_3: 869024867
-      personagem 1 correno-Sheet_4: -1091456833
-      personagem 1 correno-Sheet_5: 1465898352
-      personagem 1 correno-Sheet_6: -1003977010
-      personagem 1 correno-Sheet_7: -311956130
-      personagem 1 correno-Sheet_8: 1440155036
-      personagem 1 correno-Sheet_9: 1939598164
+      personagem 1 -Sheet_0: 1682986234
+      personagem 1 -Sheet_1: 1452800556
+      personagem 1 -Sheet_10: -1739072111
+      personagem 1 -Sheet_11: 327506630
+      personagem 1 -Sheet_12: 2015054078
+      personagem 1 -Sheet_13: -1513645970
+      personagem 1 -Sheet_14: -385332660
+      personagem 1 -Sheet_15: -618864791
+      personagem 1 -Sheet_16: 238818632
+      personagem 1 -Sheet_17: 375047521
+      personagem 1 -Sheet_18: 1680434979
+      personagem 1 -Sheet_19: 772443440
+      personagem 1 -Sheet_2: -849610907
+      personagem 1 -Sheet_20: -1490614596
+      personagem 1 -Sheet_21: -229479548
+      personagem 1 -Sheet_22: 756579350
+      personagem 1 -Sheet_23: 1470145230
+      personagem 1 -Sheet_24: -1969671395
+      personagem 1 -Sheet_3: -2089177823
+      personagem 1 -Sheet_4: 2052694971
+      personagem 1 -Sheet_5: 818366658
+      personagem 1 -Sheet_6: -1024311515
+      personagem 1 -Sheet_7: -1811526161
+      personagem 1 -Sheet_8: 900546622
+      personagem 1 -Sheet_9: 168181645
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
