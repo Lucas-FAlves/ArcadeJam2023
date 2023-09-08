@@ -21,8 +21,8 @@ public class PlayerMovement : MonoBehaviour
     private void Anda(InputAction.CallbackContext ctx)
     {   
         _movementInput = ctx.ReadValue<Vector2>();
-        _smoothenedMovimentInput = Vector2.SmoothDamp(_smoothenedMovimentInput, _movementInput, ref _smootheningVelocity, 0.1f);
-        _rigidbody.velocity = _smoothenedMovimentInput * speed;
+        //_smoothenedMovimentInput = Vector2.SmoothDamp(_smoothenedMovimentInput, _movementInput, ref _smootheningVelocity, 0.1f);
+        _rigidbody.velocity = _movementInput * speed;
     }
 
     private void OnEnable() 

@@ -9,6 +9,20 @@ public class MeleeHandler : MonoBehaviour
     [SerializeField] private float rangeRadius = 4f;
     [SerializeField] private LayerMask layerMask;
     private PlayerControls input;
+
+    private Material material;
+
+public void OnMelee(InputAction.CallbackContext ctx)
+    {
+        inRange = Physics2D.OverlapCircleAll(gameObject.transform.position, rangeRadius, layerMask);
+        if (inRange.Length >=1 )
+        {
+            Debug.Log("Inimigo detectado.");
+            material = inRange[0].gameObject.GetComponent<SpriteRenderer>().material;
+            material.color = Color.red;
+        }
+        //Debug.Log("Inimigo detectado.");
+    }
     
     private void Awake() 
     {
@@ -18,23 +32,16 @@ public class MeleeHandler : MonoBehaviour
     private void OnEnable() 
     {
         input.Enable();
-        input.Player.Melee.started += OnMelee(inRange);  
+        input.Player.Melee.started += OnMelee;  
     }
 
     private void OnDisable() 
     {
         input.Disable();
-        input.Player.Melee.started -= OnMelee(inRange);
+        input.Player.Melee.started -= OnMelee;
     }
 
-    public void OnMelee(Collider2D[] inRange, InputAction.CallbackContext ctx)
-    {
-        inRange = Physics2D.OverlapCircleAll(gameObject.transform.position, rangeRadius, layerMask);
-        if (inRange.Length >=1 )
-        {
-            Debug.Log("Inimigo detectado.");
-        }
-    }
+    
 
     
 }
