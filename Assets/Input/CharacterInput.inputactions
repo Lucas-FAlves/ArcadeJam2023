@@ -1,5 +1,5 @@
 {
-    "name": "PlayerInput",
+    "name": "CharacterInput",
     "maps": [
         {
             "name": "Player",
@@ -36,6 +36,15 @@
                     "name": "Melee",
                     "type": "Button",
                     "id": "7d0fc724-9502-44e7-bb7f-78a85a38df40",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Dash",
+                    "type": "Button",
+                    "id": "5be2f692-0d2f-492c-8a41-e8d6d52a368d",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -265,23 +274,23 @@
                 },
                 {
                     "name": "",
-                    "id": "927d6d5f-033e-4242-9b7e-c5e68c58d87a",
-                    "path": "<Keyboard>/#(W)",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Fire",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "8cfdfe92-ba2b-4292-894a-2b276f8dfc9c",
                     "path": "<Keyboard>/#(E)",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Melee",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5f5beab8-861c-4e40-97c6-aef717be6caa",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
