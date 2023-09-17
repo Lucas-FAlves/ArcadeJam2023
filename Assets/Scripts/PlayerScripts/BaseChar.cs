@@ -39,6 +39,8 @@ public class BaseChar : MonoBehaviour
     public float meleeCorrectionSpeed;
     public float meleeCorrectionMinDistance;
     public float meleeCorrectionSpeedFallOff;
+    public MovementScript OtherMovementScript => otherMovementScript;
+    public float MeleeCowndownTime => meleeCowndownTime;
 
 
     //Public Variables
@@ -57,22 +59,36 @@ public class BaseChar : MonoBehaviour
 
     private void OnEnable()
     {
-        InputMenager.Instance.CharacterInput.Player.Fire.started += OnRangedPerformed;
-        InputMenager.Instance.CharacterInput.Player.Fire.performed += OnRangedPerformed;
-        InputMenager.Instance.CharacterInput.Player.Fire.canceled += OnRangedPerformed;
-        InputMenager.Instance.CharacterInput.Player.Dash.performed += Dash;
-        InputMenager.Instance.CharacterInput.Player.Melee.performed += OnMeleePerformed;
+        if (name == "Player1")
+        {
+            InputMenager.Instance.CharacterInput.Player.Fire.started += OnRangedPerformed;
+            InputMenager.Instance.CharacterInput.Player.Fire.performed += OnRangedPerformed;
+            InputMenager.Instance.CharacterInput.Player.Fire.canceled += OnRangedPerformed;
+            InputMenager.Instance.CharacterInput.Player.Dash.performed += Dash;
+            InputMenager.Instance.CharacterInput.Player.Melee.performed += OnMeleePerformed;
+        }
+        else
+        {
+
+        }
     }
 
 
 
     private void OnDisable()
     {
-        InputMenager.Instance.CharacterInput.Player.Fire.started -= OnRangedPerformed;
-        InputMenager.Instance.CharacterInput.Player.Fire.performed -= OnRangedPerformed;
-        InputMenager.Instance.CharacterInput.Player.Fire.canceled -= OnRangedPerformed;
-        InputMenager.Instance.CharacterInput.Player.Dash.performed -= Dash;
-        InputMenager.Instance.CharacterInput.Player.Melee.performed -= OnMeleePerformed;
+        if (name == "Player1")
+        {
+            InputMenager.Instance.CharacterInput.Player.Fire.started -= OnRangedPerformed;
+            InputMenager.Instance.CharacterInput.Player.Fire.performed -= OnRangedPerformed;
+            InputMenager.Instance.CharacterInput.Player.Fire.canceled -= OnRangedPerformed;
+            InputMenager.Instance.CharacterInput.Player.Dash.performed -= Dash;
+            InputMenager.Instance.CharacterInput.Player.Melee.performed -= OnMeleePerformed;
+        }
+        else
+        {
+
+        }
     }
 
     void Start()
@@ -92,7 +108,7 @@ public class BaseChar : MonoBehaviour
         {
             rangedAttackCooldownTime -= Time.deltaTime;
         }
-        
+
 
         dashCooldownTime -= Time.deltaTime;
         meleeCowndownTime -= Time.deltaTime;
@@ -131,13 +147,14 @@ public class BaseChar : MonoBehaviour
 
     private void OnMeleePerformed(InputAction.CallbackContext context)
     {
-        if(meleeCowndownTime > 0f) return;
+        if (meleeCowndownTime > 0f) return;
         if ((movementScript.otherPlayer.position - transform.position).magnitude > meleeCorrectionMinDistance)
         {
             meleeCorrectionSpeedFallOff = Mathf.InverseLerp(meleeCorrectionMinDistance, meleeCorrectionDistance, (movementScript.otherPlayer.position - transform.position).magnitude);
 
             movementScript.ApplyForce((movementScript.otherPlayer.position - transform.position).normalized * meleeCorrectionSpeed * meleeCorrectionSpeedFallOff);
         }
+
         Collider2D[] hit = new Collider2D[1];
         if (meleeHitbox.OverlapCollider(meleeHitboxFilter, hit) > 0)
         {
@@ -149,13 +166,18 @@ public class BaseChar : MonoBehaviour
                 otherMovementScript.Hit((otherMovementScript.transform.position - transform.position).normalized * baseMeleeDamage, damage);
                 meleeSequence = 0;
                 meleeCowndownTime = 1f;
+                otherMovementScript.Slow(0.5f);
+
             }
         }
         else
-            meleeCowndownTime = 0.8f;
-    }
+        {
+            Debug.Log("Missed");
+            meleeSequence = 0;
+            meleeCowndownTime = 0.5f;
+        }
 
-    public float testdash;
+    }
 
     private void Dash(InputAction.CallbackContext ctx)
     {
