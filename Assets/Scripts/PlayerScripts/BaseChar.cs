@@ -69,7 +69,11 @@ public class BaseChar : MonoBehaviour
         }
         else
         {
-
+            InputMenager.Instance.CharacterInput.Player2.Fire.started += OnRangedPerformed;
+            InputMenager.Instance.CharacterInput.Player2.Fire.performed += OnRangedPerformed;
+            InputMenager.Instance.CharacterInput.Player2.Fire.canceled += OnRangedPerformed;
+            InputMenager.Instance.CharacterInput.Player2.Dash.performed += Dash;
+            InputMenager.Instance.CharacterInput.Player2.Melee.performed += OnMeleePerformed;
         }
     }
 
@@ -79,15 +83,19 @@ public class BaseChar : MonoBehaviour
     {
         if (name == "Player1")
         {
-            InputMenager.Instance.CharacterInput.Player.Fire.started -= OnRangedPerformed;
-            InputMenager.Instance.CharacterInput.Player.Fire.performed -= OnRangedPerformed;
-            InputMenager.Instance.CharacterInput.Player.Fire.canceled -= OnRangedPerformed;
-            InputMenager.Instance.CharacterInput.Player.Dash.performed -= Dash;
-            InputMenager.Instance.CharacterInput.Player.Melee.performed -= OnMeleePerformed;
+            InputMenager.Instance.CharacterInput.Player2.Fire.started -= OnRangedPerformed;
+            InputMenager.Instance.CharacterInput.Player2.Fire.performed -= OnRangedPerformed;
+            InputMenager.Instance.CharacterInput.Player2.Fire.canceled -= OnRangedPerformed;
+            InputMenager.Instance.CharacterInput.Player2.Dash.performed -= Dash;
+            InputMenager.Instance.CharacterInput.Player2.Melee.performed -= OnMeleePerformed;
         }
         else
         {
-
+            InputMenager.Instance.CharacterInput.Player2.Fire.started -= OnRangedPerformed;
+            InputMenager.Instance.CharacterInput.Player2.Fire.performed -= OnRangedPerformed;
+            InputMenager.Instance.CharacterInput.Player2.Fire.canceled -= OnRangedPerformed;
+            InputMenager.Instance.CharacterInput.Player2.Dash.performed -= Dash;
+            InputMenager.Instance.CharacterInput.Player2.Melee.performed -= OnMeleePerformed;
         }
     }
 
