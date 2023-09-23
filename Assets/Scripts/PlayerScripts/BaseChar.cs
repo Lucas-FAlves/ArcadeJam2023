@@ -18,6 +18,7 @@ public class BaseChar : MonoBehaviour
     private float dashCooldownTime = 0f;
     private float meleeCowndownTime = 0f;
     private int meleeSequence;
+    public bool attacking = false;
 
 
     //Serialized Private Variables
@@ -34,11 +35,14 @@ public class BaseChar : MonoBehaviour
     [SerializeField] private float dashCooldown = 1f;
     [SerializeField] private MovementScript otherMovementScript;
 
+
     public float dashSpeed = 20f;
     public float meleeCorrectionDistance;
     public float meleeCorrectionSpeed;
     public float meleeCorrectionMinDistance;
     public float meleeCorrectionSpeedFallOff;
+    public MovementScript OtherMovementScript => otherMovementScript;
+    public float MeleeCowndownTime => meleeCowndownTime;
 
 
     //Public Variables
@@ -57,22 +61,44 @@ public class BaseChar : MonoBehaviour
 
     private void OnEnable()
     {
-        InputMenager.Instance.CharacterInput.Player.Fire.started += OnRangedPerformed;
-        InputMenager.Instance.CharacterInput.Player.Fire.performed += OnRangedPerformed;
-        InputMenager.Instance.CharacterInput.Player.Fire.canceled += OnRangedPerformed;
-        InputMenager.Instance.CharacterInput.Player.Dash.performed += Dash;
-        InputMenager.Instance.CharacterInput.Player.Melee.performed += OnMeleePerformed;
+        if (name == "Player1")
+        {
+            InputMenager.Instance.CharacterInput.Player.Fire.started += OnRangedPerformed;
+            InputMenager.Instance.CharacterInput.Player.Fire.performed += OnRangedPerformed;
+            InputMenager.Instance.CharacterInput.Player.Fire.canceled += OnRangedPerformed;
+            InputMenager.Instance.CharacterInput.Player.Dash.performed += Dash;
+            InputMenager.Instance.CharacterInput.Player.Melee.performed += OnMeleePerformed;
+        }
+        else
+        {
+            InputMenager.Instance.CharacterInput.Player2.Fire.started += OnRangedPerformed;
+            InputMenager.Instance.CharacterInput.Player2.Fire.performed += OnRangedPerformed;
+            InputMenager.Instance.CharacterInput.Player2.Fire.canceled += OnRangedPerformed;
+            InputMenager.Instance.CharacterInput.Player2.Dash.performed += Dash;
+            InputMenager.Instance.CharacterInput.Player2.Melee.performed += OnMeleePerformed;
+        }
     }
 
 
 
     private void OnDisable()
     {
-        InputMenager.Instance.CharacterInput.Player.Fire.started -= OnRangedPerformed;
-        InputMenager.Instance.CharacterInput.Player.Fire.performed -= OnRangedPerformed;
-        InputMenager.Instance.CharacterInput.Player.Fire.canceled -= OnRangedPerformed;
-        InputMenager.Instance.CharacterInput.Player.Dash.performed -= Dash;
-        InputMenager.Instance.CharacterInput.Player.Melee.performed -= OnMeleePerformed;
+        if (name == "Player1")
+        {
+            InputMenager.Instance.CharacterInput.Player2.Fire.started -= OnRangedPerformed;
+            InputMenager.Instance.CharacterInput.Player2.Fire.performed -= OnRangedPerformed;
+            InputMenager.Instance.CharacterInput.Player2.Fire.canceled -= OnRangedPerformed;
+            InputMenager.Instance.CharacterInput.Player2.Dash.performed -= Dash;
+            InputMenager.Instance.CharacterInput.Player2.Melee.performed -= OnMeleePerformed;
+        }
+        else
+        {
+            InputMenager.Instance.CharacterInput.Player2.Fire.started -= OnRangedPerformed;
+            InputMenager.Instance.CharacterInput.Player2.Fire.performed -= OnRangedPerformed;
+            InputMenager.Instance.CharacterInput.Player2.Fire.canceled -= OnRangedPerformed;
+            InputMenager.Instance.CharacterInput.Player2.Dash.performed -= Dash;
+            InputMenager.Instance.CharacterInput.Player2.Melee.performed -= OnMeleePerformed;
+        }
     }
 
     void Start()
@@ -92,7 +118,29 @@ public class BaseChar : MonoBehaviour
         {
             rangedAttackCooldownTime -= Time.deltaTime;
         }
-        
+
+        if (attacking)
+        {
+            Collider2D[] hit = new Collider2D[1];
+            if (meleeHitbox.OverlapCollider(meleeHitboxFilter, hit) > 0)
+            {
+                otherMovementScript.Stun(0.5f);
+                otherMovementScript.Hit((otherMovementScript.transform.position - transform.position).normalized, damage);
+                meleeSequence++;
+                if (meleeSequence > 4)
+                {
+                    otherMovementScript.UnStun();
+                    otherMovementScript.Hit((otherMovementScript.transform.position - transform.position).normalized * baseMeleeDamage, damage);
+                    meleeSequence = 0;
+                    meleeCowndownTime = 1f;
+                    
+                }
+
+                attacking = false;
+                movementScript.UnStun();
+            }
+        }
+
 
         dashCooldownTime -= Time.deltaTime;
         meleeCowndownTime -= Time.deltaTime;
@@ -102,7 +150,7 @@ public class BaseChar : MonoBehaviour
 
     private void OnRangedPerformed(InputAction.CallbackContext ctx)
     {
-        if (rangedAttackCooldownTime > 0f) return;
+        if (rangedAttackCooldownTime > 0f || movementScript.Stunned) return;
         if (ctx.started)
         {
             holdingShoot = true;
@@ -131,35 +179,23 @@ public class BaseChar : MonoBehaviour
 
     private void OnMeleePerformed(InputAction.CallbackContext context)
     {
-        if(meleeCowndownTime > 0f) return;
+        if (meleeCowndownTime > 0f || movementScript.Stunned) return;
+
         if ((movementScript.otherPlayer.position - transform.position).magnitude > meleeCorrectionMinDistance)
         {
             meleeCorrectionSpeedFallOff = Mathf.InverseLerp(meleeCorrectionMinDistance, meleeCorrectionDistance, (movementScript.otherPlayer.position - transform.position).magnitude);
 
             movementScript.ApplyForce((movementScript.otherPlayer.position - transform.position).normalized * meleeCorrectionSpeed * meleeCorrectionSpeedFallOff);
         }
-        Collider2D[] hit = new Collider2D[1];
-        if (meleeHitbox.OverlapCollider(meleeHitboxFilter, hit) > 0)
-        {
-            otherMovementScript.Stun(0.5f);
-            otherMovementScript.Hit((otherMovementScript.transform.position - transform.position).normalized, damage);
-            meleeSequence++;
-            if (meleeSequence > 4)
-            {
-                otherMovementScript.Hit((otherMovementScript.transform.position - transform.position).normalized * baseMeleeDamage, damage);
-                meleeSequence = 0;
-                meleeCowndownTime = 1f;
-            }
-        }
-        else
-            meleeCowndownTime = 0.8f;
-    }
 
-    public float testdash;
+        attacking = true;
+        movementScript.Stun(0.38f, () => {attacking = false; meleeSequence = 0; });
+
+    }
 
     private void Dash(InputAction.CallbackContext ctx)
     {
-        if (movementScript.Concentration > 0.2f) return;
+        if (movementScript.Concentration > 0.2f || movementScript.Stunned) return;
         if (dashCooldownTime > 0f) return;
 
         if (movementScript.Velocity.sqrMagnitude != 0)

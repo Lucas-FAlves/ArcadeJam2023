@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+public delegate void OnEndOfStun();
+
 public class MovementScript : MonoBehaviour
 {
     #region Variables and Properties
@@ -14,6 +16,7 @@ public class MovementScript : MonoBehaviour
     private bool _stunned = false;
     private bool _slowed = false;
     private BaseChar _baseChar;
+
 
     //Serialized Private Variables
     [SerializeField] private float maxSpeed = 4.5f;
@@ -29,23 +32,41 @@ public class MovementScript : MonoBehaviour
     public Vector2 WalkingDirection { get; private set; }
     public Vector2 FacingDirection { get; private set; }
     public float Concentration { get; set; }
+    public bool Stunned => _stunned;
     public float knockbackForceMultiplier = 1f;
 
     public Transform otherPlayer;
     public LayerMask wall;
+    public LayerMask floor;
 
     #endregion
 
     void OnEnable()
     {
-        InputMenager.Instance.CharacterInput.Player.Move.performed += OnMovePerformed;
-        InputMenager.Instance.CharacterInput.Player.Move.canceled += OnMovePerformed;
+        if (name == "Player1")
+        {
+            InputMenager.Instance.CharacterInput.Player.Move.performed += OnMovePerformed;
+            InputMenager.Instance.CharacterInput.Player.Move.canceled += OnMovePerformed;
+        }
+        else
+        {
+            InputMenager.Instance.CharacterInput.Player2.Move.performed += OnMovePerformed;
+            InputMenager.Instance.CharacterInput.Player2.Move.canceled += OnMovePerformed;
+        }
     }
 
     void OnDisable()
     {
-        InputMenager.Instance.CharacterInput.Player.Move.performed -= OnMovePerformed;
-        InputMenager.Instance.CharacterInput.Player.Move.canceled -= OnMovePerformed;
+        if (name == "Player2")
+        {
+            InputMenager.Instance.CharacterInput.Player.Move.performed -= OnMovePerformed;
+            InputMenager.Instance.CharacterInput.Player.Move.canceled -= OnMovePerformed;
+        }
+        else
+        {
+            InputMenager.Instance.CharacterInput.Player2.Move.performed -= OnMovePerformed;
+            InputMenager.Instance.CharacterInput.Player2.Move.canceled -= OnMovePerformed;
+        }
     }
 
     private void Awake()
@@ -57,12 +78,21 @@ public class MovementScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!Physics2D.OverlapCircle(transform.position, 0.3f, floor))
+        {
+            _movement = _velocity * Time.deltaTime * (1.2f - Concentration);
+            transform.position += (Vector3)_movement;
+            return;
+        }
         //calculate velocity
         CalculateVelocity();
 
+        
         _movement = _velocity * Time.deltaTime * (1.2f - Concentration);
+        
 
         //move the player
+//        if(name == "Player2") Debug.Log(_slowed);
         transform.position += (Vector3)_movement;
         if (_movementInput.sqrMagnitude > 0)
         {
@@ -74,21 +104,12 @@ public class MovementScript : MonoBehaviour
             FacingDirection = otherPlayer.transform.position - transform.position;
             transform.up = FacingDirection;
         }
-
-        if (_baseChar == null) return;
-        int i = 0;
+        
         if (Physics2D.OverlapCircle(transform.position, 0.5f, _baseChar.OtherPlayerLayer))
         {
-            bool t;
-            do
-            {
-                transform.position += -(Vector3)FacingDirection * 0.001f;
-                i++;
-                if (i > 100) break;
-                t = Physics2D.OverlapCircle(transform.position, 0.5f, _baseChar.OtherPlayerLayer);
-            } while (t);
+            PullPlayer(true);
         }
-
+        int i = 0;
         if (_baseChar.dashing)
             if (Physics2D.OverlapCircle(transform.position, 0.5f, wall))
             {
@@ -104,13 +125,29 @@ public class MovementScript : MonoBehaviour
 
     }
 
+    public void PullPlayer(bool first)
+    {
+        int i = 0;
+        bool t;
+            do
+            {
+                transform.position += -(Vector3)FacingDirection * 0.001f;
+                _velocity = Vector2.zero;
+                if(first)
+                    _baseChar.OtherMovementScript.PullPlayer(false);
+                i++;
+                if (i > 100) break;
+                t = Physics2D.OverlapCircle(transform.position, 0.5f, _baseChar.OtherPlayerLayer);
+            } while (t);
+    }
+
     private void CalculateVelocity()
     {
         //Check if the player is moving
-        if (_movementInput.sqrMagnitude > 0)
+        if (_movementInput.sqrMagnitude > 0 && !_stunned)
         {
             //calculate new velocity
-            var newSpeed = Vector2.MoveTowards(_velocity, _movementInput * maxSpeed, acceleration * Time.deltaTime);
+            var newSpeed = Vector2.MoveTowards(_velocity, _movementInput * maxSpeed, _slowed ? acceleration / 5 : acceleration * Time.deltaTime);
             //check if the new velocity not exceed the max speed and if the player is not trying to move in the opposite direction
             if (Vector2.Dot(_velocity, _movementInput) > 0)
             {
@@ -127,9 +164,9 @@ public class MovementScript : MonoBehaviour
 
         //apply drag
         //_velocity = Vector2.Lerp(_velocity, Vector2.zero, deceleration * Time.deltaTime);
-        _velocity = Vector2.MoveTowards(_velocity, Vector2.zero, _slowed ? deceleration * Time.deltaTime * 10 : deceleration * Time.deltaTime);
+        _velocity = Vector2.MoveTowards(_velocity, Vector2.zero, deceleration * Time.deltaTime);
 
-        if(_baseChar != null && _velocity.sqrMagnitude <= maxSpeed * maxSpeed)
+        if (_baseChar != null && _velocity.sqrMagnitude <= maxSpeed * maxSpeed)
         {
             if (_baseChar.dashing) _baseChar.dashing = false;
         }
@@ -150,11 +187,11 @@ public class MovementScript : MonoBehaviour
         ApplyForce(force, true);
     }
 
-    public void Stun(float time)
+    public void Stun(float time, OnEndOfStun onEndOfStunEvent = null)
     {
         if (!_stunned)
         {
-            StartCoroutine(StunCoroutine(time));
+            StartCoroutine(StunCoroutine(time, onEndOfStunEvent != null ? onEndOfStunEvent : null));
         }
     }
 
@@ -166,10 +203,16 @@ public class MovementScript : MonoBehaviour
         }
     }
 
-    private IEnumerator StunCoroutine(float time)
+    public void UnStun()
+    {
+        _stunned = false;
+    }
+
+    private IEnumerator StunCoroutine(float time, OnEndOfStun onEndOfStunEvent = null)
     {
         _stunned = true;
         yield return new WaitForSeconds(time);
+        onEndOfStunEvent?.Invoke();
         _stunned = false;
     }
 

@@ -210,7 +210,7 @@ GameObject:
   m_Component:
   - component: {fileID: 556454681}
   - component: {fileID: 556454682}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Melee Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -291,7 +291,7 @@ GameObject:
   - component: {fileID: 932883674}
   - component: {fileID: 932883675}
   m_Layer: 7
-  m_Name: Circle
+  m_Name: Player1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -317,6 +317,9 @@ MonoBehaviour:
   wall:
     serializedVersion: 2
     m_Bits: 512
+  floor:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!212 &932883672
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -378,7 +381,7 @@ Transform:
   m_GameObject: {fileID: 932883670}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.13, y: 2.76, z: 0}
+  m_LocalPosition: {x: -2.31, y: -1.71, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -418,7 +421,7 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
-  baseMeleeDamage: 10
+  baseMeleeDamage: 3
   rangedAttack: {fileID: 2016290325}
   meleeAttack: {fileID: 2125131533}
   initialShootAngle: 10
@@ -428,10 +431,9 @@ MonoBehaviour:
   dashSpeed: 10
   meleeCorrectionDistance: 1.5
   meleeCorrectionSpeed: 3
-  meleeCorrectionMinDistance: 1
+  meleeCorrectionMinDistance: 0.61
   meleeCorrectionSpeedFallOff: 0
   dashing: 0
-  testdash: 0
 --- !u!58 &932883675
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -769,7 +771,7 @@ GameObject:
   - component: {fileID: 1868248815}
   - component: {fileID: 1868248814}
   - component: {fileID: 1868248813}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -975,17 +977,61 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 932883673}
     m_Modifications:
+    - target: {fileID: 569433302087177489, guid: a57c6e2bd89a7444980bd76e8c627a83, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 569433302087177489, guid: a57c6e2bd89a7444980bd76e8c627a83, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 1970751073826592866, guid: a57c6e2bd89a7444980bd76e8c627a83, type: 3}
-      propertyPath: CollisionModule.collidesWith.m_Bits
-      value: 256
+      propertyPath: SubModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970751073826592866, guid: a57c6e2bd89a7444980bd76e8c627a83, type: 3}
+      propertyPath: TrailModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970751073826592866, guid: a57c6e2bd89a7444980bd76e8c627a83, type: 3}
+      propertyPath: EmissionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970751073826592866, guid: a57c6e2bd89a7444980bd76e8c627a83, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970751073826592866, guid: a57c6e2bd89a7444980bd76e8c627a83, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970751073826592866, guid: a57c6e2bd89a7444980bd76e8c627a83, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 1.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970751073826592866, guid: a57c6e2bd89a7444980bd76e8c627a83, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970751073826592866, guid: a57c6e2bd89a7444980bd76e8c627a83, type: 3}
+      propertyPath: TrailModule.colorOverTrail.maxColor.b
+      value: 0.06594872
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970751073826592866, guid: a57c6e2bd89a7444980bd76e8c627a83, type: 3}
+      propertyPath: TrailModule.colorOverTrail.maxColor.g
+      value: 0.4839867
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970751073826592866, guid: a57c6e2bd89a7444980bd76e8c627a83, type: 3}
+      propertyPath: TrailModule.colorOverTrail.maxColor.r
+      value: 0.735849
+      objectReference: {fileID: 0}
+    - target: {fileID: 1970751073826592866, guid: a57c6e2bd89a7444980bd76e8c627a83, type: 3}
+      propertyPath: TrailModule.colorOverTrail.minMaxState
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2775871106577159453, guid: a57c6e2bd89a7444980bd76e8c627a83, type: 3}
       propertyPath: m_Name
       value: RangedAttack
-      objectReference: {fileID: 0}
-    - target: {fileID: 3498168206501518913, guid: a57c6e2bd89a7444980bd76e8c627a83, type: 3}
-      propertyPath: force
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7186776763196077203, guid: a57c6e2bd89a7444980bd76e8c627a83, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1197,9 +1243,10 @@ GameObject:
   - component: {fileID: 2146028476}
   - component: {fileID: 2146028475}
   - component: {fileID: 2146028477}
+  - component: {fileID: 2146028479}
   - component: {fileID: 2146028478}
   m_Layer: 8
-  m_Name: Square (1)
+  m_Name: Player2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1284,14 +1331,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cebc5c6bfd01e944ad7a3d366baf1cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 0
-  acceleration: 0
-  deceleration: 20
+  maxSpeed: 5
+  acceleration: 40
+  deceleration: 10
   knockbackForceMultiplier: 1
   otherPlayer: {fileID: 932883673}
   wall:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
+  floor:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!61 &2146028478
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1337,6 +1387,50 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2146028479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146028474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18bfc485a8c93e949941fccb37d51247, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  otherPlayerLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  meleeHitbox: {fileID: 0}
+  damage: 1
+  meleeHitboxFilter:
+    useTriggers: 0
+    useLayerMask: 1
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 128
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
+  baseMeleeDamage: 10
+  rangedAttack: {fileID: 0}
+  meleeAttack: {fileID: 0}
+  initialShootAngle: 10
+  rangedAttackCooldown: 1
+  dashCooldown: 1
+  otherMovementScript: {fileID: 932883671}
+  dashSpeed: 20
+  meleeCorrectionDistance: 0
+  meleeCorrectionSpeed: 0
+  meleeCorrectionMinDistance: 0
+  meleeCorrectionSpeedFallOff: 0
+  dashing: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
