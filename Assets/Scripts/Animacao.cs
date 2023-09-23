@@ -9,11 +9,17 @@ public class Animacao : MonoBehaviour
     public MovementScript movementScript;
     //public Transform target; // O alvo que o sprite deve sempre "olhar", geralmente o ponto de origem do jogador.
     float horizontalInput;
+    // Obtém o componente SpriteRenderer.
+    SpriteRenderer spriteRenderer;
+
+// Inverte a renderização horizontalmente.
+
     float verticalInput;
     Vector2 movementDirection;
     // Start is called before the first frame update
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         Animator animator = GetComponent<Animator>();
         MovementScript movementScript = GetComponent<MovementScript>();
         BaseChar baseChar = GetComponent<BaseChar>();
@@ -25,7 +31,7 @@ public class Animacao : MonoBehaviour
         Vector3 rotatoin = transform.rotation.eulerAngles;
         rotatoin.z = 0f;
         transform.rotation = Quaternion.Euler(rotatoin);
-        
+
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
 
@@ -35,28 +41,45 @@ public class Animacao : MonoBehaviour
 
         if (movementDirection.sqrMagnitude > 0)
         {
-            animator.SetFloat("Horizontal", movementDirection.x);
-            if(movementDirection.x > 0)
+            if(movementDirection.x > 0 && movementDirection.y == 0)
             {
-                animator.SetBool("Right", true);
-            }else{
-                animator.SetBool("Right", false);
+                spriteRenderer.flipX = true;
+                animator.Play("CORRLadoES");
             }
-            animator.SetFloat("Vertical", movementDirection.y);
-        }
-        else
-        {
-            animator.SetFloat("Horizontal", 0);
-            animator.SetFloat("Vertical", 0);
-        }
-
-        
-
-/*
-        if (baseChar.dashing)
-        {
-            animator.SetTrigger("dash");
-        }*/
+            if(movementDirection.x < 0 && movementDirection.y == 0)
+            {
+                spriteRenderer.flipX = false;
+                animator.Play("CORRLadoES");
+            }
+            if(movementDirection.y > 0 && movementDirection.x == 0)
+            {
+                animator.Play("CORRCost");
+            }
+            if(movementDirection.y < 0 && movementDirection.x == 0)
+            {
+                animator.Play("CORRFrente");
+            }
+            if(movementDirection.x > 0 && movementDirection.y > 0)
+            {
+                spriteRenderer.flipX = true;
+                animator.Play("CORRCostES");
+            }
+            if(movementDirection.x > 0 && movementDirection.y < 0)
+            {
+                spriteRenderer.flipX = true;
+                animator.Play("CORRDiagFreES");
+            }
+            if(movementDirection.x < 0 && movementDirection.y > 0)
+            {
+                spriteRenderer.flipX = false;
+                animator.Play("CORRCostES");
+            }
+            if(movementDirection.x < 0 && movementDirection.y < 0)
+            {
+                spriteRenderer.flipX = false;
+                animator.Play("CORRDiagFreES");
+            }
     }
 }
 
+}
