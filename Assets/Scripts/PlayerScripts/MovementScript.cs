@@ -132,7 +132,7 @@ public class MovementScript : MonoBehaviour
             do
             {
                 transform.position += -(Vector3)FacingDirection * 0.001f;
-                _velocity = Vector2.zero;
+                //_velocity = Vector2.zero;
                 if(first)
                     _baseChar.OtherMovementScript.PullPlayer(false);
                 i++;
