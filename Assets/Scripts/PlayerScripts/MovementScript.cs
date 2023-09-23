@@ -11,7 +11,7 @@ public class MovementScript : MonoBehaviour
     #region Variables and Properties
     //Private Variables
     private Vector2 _velocity;
-    private Vector2 _movement;
+    public Vector2 _movement;
     private Vector2 _movementInput;
     private bool _stunned = false;
     private bool _slowed = false;
@@ -132,7 +132,7 @@ public class MovementScript : MonoBehaviour
             do
             {
                 transform.position += -(Vector3)FacingDirection * 0.001f;
-                _velocity = Vector2.zero;
+                //_velocity = Vector2.zero;
                 if(first)
                     _baseChar.OtherMovementScript.PullPlayer(false);
                 i++;
