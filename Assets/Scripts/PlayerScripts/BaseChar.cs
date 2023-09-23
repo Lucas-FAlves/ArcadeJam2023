@@ -34,6 +34,8 @@ public class BaseChar : MonoBehaviour
     [SerializeField] private float rangedAttackCooldown = 1f;
     [SerializeField] private float dashCooldown = 1f;
     [SerializeField] private MovementScript otherMovementScript;
+    private float attackSequenceTime = 0.2f;
+    private float attackSequenceTimer = 0f;
 
 
     public float dashSpeed = 20f;
@@ -136,12 +138,18 @@ public class BaseChar : MonoBehaviour
                     
                 }
 
-                attacking = false;
                 movementScript.UnStun();
+                
+                attacking = false;
             }
         }
 
+        if(attackSequenceTimer < 0f)
+        {
+            meleeSequence = 0;
+        }
 
+        attackSequenceTimer -= Time.deltaTime;
         dashCooldownTime -= Time.deltaTime;
         meleeCowndownTime -= Time.deltaTime;
     }
@@ -189,7 +197,7 @@ public class BaseChar : MonoBehaviour
         }
 
         attacking = true;
-        movementScript.Stun(0.38f, () => {attacking = false; meleeSequence = 0; });
+        movementScript.Stun(0.38f, () => {attacking = false;});
 
     }
 
