@@ -21,7 +21,7 @@ public class AnimacaoMylii : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        meleeAttackScript = GetComponent<MeleeAttackScript>(); 
+        MeleeAttackScript meleeAttackScript = GetComponent<MeleeAttackScript>(); 
         spriteRenderer = GetComponent<SpriteRenderer>();
         Animator animator = GetComponent<Animator>();
         MovementScript movementScript = GetComponent<MovementScript>();
@@ -32,6 +32,7 @@ public class AnimacaoMylii : MonoBehaviour
     void Update()
     {
         Vector3 rotatoin = transform.rotation.eulerAngles;
+
         rotatoin.z = 0f;
         transform.rotation = Quaternion.Euler(rotatoin);
 
@@ -41,14 +42,16 @@ public class AnimacaoMylii : MonoBehaviour
         movementDirection = new Vector2(horizontalInput, verticalInput).normalized;
 
         FacingDirection = baseChar.MovementScript.FacingDirection;
-        //Debug.Log(meleeAttackScript.attacking);
+        Debug.Log(meleeAttackScript.attacking);
         //animator.SetTrigger("frente");
 
-        /*if(meleeAttackScript.attacking)
+        if(meleeAttackScript.attacking)
         {
-            animator.Play("FreneMylliAtack");
+            animator.Play("FrenAtackMylli");
             currentAnimation = "ParFrenMylli";
-        }*/
+        }
+
+        
 
         if (movementDirection.sqrMagnitude > 0)
         {
