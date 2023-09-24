@@ -520,20 +520,50 @@ MonoBehaviour:
   - audioSource: {fileID: 0}
     name: Projectile_Launch
     clip: {fileID: 8300000, guid: a0696df0e743139468672f596b6fb3d9, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     loop: 0
   - audioSource: {fileID: 0}
     name: Sword_Attack
     clip: {fileID: 8300000, guid: dfa7f55f2a89c3945b74bcdb4b161062, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     loop: 0
   - audioSource: {fileID: 0}
     name: Sword_Parry
     clip: {fileID: 8300000, guid: cb330f75bdf846446ae15f192f6e8a45, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
+    loop: 0
+  - audioSource: {fileID: 0}
+    name: Dash1
+    clip: {fileID: 8300000, guid: fdb8eeaadedee9f4680456da7358bef2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - audioSource: {fileID: 0}
+    name: Dash2
+    clip: {fileID: 8300000, guid: fdb8eeaadedee9f4680456da7358bef2, type: 3}
+    volume: 1
+    pitch: 0.1
+    loop: 0
+  - audioSource: {fileID: 0}
+    name: Default_hit
+    clip: {fileID: 8300000, guid: 3e0b565fb222ede459d008f9d87b5da7, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - audioSource: {fileID: 0}
+    name: End_combo
+    clip: {fileID: 8300000, guid: ea1adcfe229064f40af239d9fe6c59b0, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - audioSource: {fileID: 0}
+    name: normal_melee
+    clip: {fileID: 8300000, guid: 014f5d121e78eac47a8e282d8e886126, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
 --- !u!4 &550134419
 Transform:
