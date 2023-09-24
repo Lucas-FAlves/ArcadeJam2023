@@ -289,7 +289,9 @@ GameObject:
   - component: {fileID: 932883672}
   - component: {fileID: 932883671}
   - component: {fileID: 932883674}
+  - component: {fileID: 932883676}
   - component: {fileID: 932883675}
+  - component: {fileID: 932883677}
   m_Layer: 7
   m_Name: Player1
   m_TagString: Untagged
@@ -310,8 +312,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 5
-  acceleration: 40
-  deceleration: 15
+  acceleration: 15
+  deceleration: 5
   knockbackForceMultiplier: 1
   otherPlayer: {fileID: 2146028476}
   wall:
@@ -405,34 +407,7 @@ MonoBehaviour:
   otherPlayerLayer:
     serializedVersion: 2
     m_Bits: 256
-  meleeHitbox: {fileID: 556454682}
-  damage: 1
-  meleeHitboxFilter:
-    useTriggers: 0
-    useLayerMask: 1
-    useDepth: 0
-    useOutsideDepth: 0
-    useNormalAngle: 0
-    useOutsideNormalAngle: 0
-    layerMask:
-      serializedVersion: 2
-      m_Bits: 256
-    minDepth: 0
-    maxDepth: 0
-    minNormalAngle: 0
-    maxNormalAngle: 0
-  baseMeleeDamage: 3
-  rangedAttack: {fileID: 2016290325}
-  meleeAttack: {fileID: 2125131533}
-  initialShootAngle: 10
-  rangedAttackCooldown: 5
-  dashCooldown: 1
-  otherMovementScript: {fileID: 2146028477}
   dashSpeed: 10
-  meleeCorrectionDistance: 1.5
-  meleeCorrectionSpeed: 3
-  meleeCorrectionMinDistance: 0.61
-  meleeCorrectionSpeedFallOff: 0
   dashing: 0
 --- !u!58 &932883675
 CircleCollider2D:
@@ -469,6 +444,68 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &932883676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932883670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9123d094158ec3f438de629bdd8872da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToMaxConcentration: 1
+  damage: 3
+  initialShootAngle: 10
+  rangedAttackCooldown: 1
+--- !u!114 &932883677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932883670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49373f6781660104e91f0f13ece1414a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meleeSequence: 0
+  attacking: 0
+  otherPlayerLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  meleeHitbox: {fileID: 556454682}
+  meleeHitboxFilter:
+    useTriggers: 0
+    useLayerMask: 1
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 256
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
+  baseMeleeDamage: 2
+  rangedAttack: {fileID: 0}
+  meleeAttack: {fileID: 0}
+  initialShootAngle: 10
+  rangedAttackCooldown: 1
+  dashCooldown: 1
+  otherMovementScript: {fileID: 0}
+  attackSequenceTime: 0.5
+  attackSequenceTimer: 0
+  dashSpeed: 20
+  meleeCorrectionDistance: 1.5
+  meleeCorrectionSpeed: 2
+  meleeCorrectionMinDistance: 1
+  meleeCorrectionSpeedFallOff: 0
 --- !u!1 &1274299593
 GameObject:
   m_ObjectHideFlags: 0
@@ -978,9 +1015,25 @@ PrefabInstance:
     m_TransformParent: {fileID: 932883673}
     m_Modifications:
     - target: {fileID: 569433302087177489, guid: a57c6e2bd89a7444980bd76e8c627a83, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 569433302087177489, guid: a57c6e2bd89a7444980bd76e8c627a83, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 569433302087177489, guid: a57c6e2bd89a7444980bd76e8c627a83, type: 3}
+      propertyPath: m_MeshDistribution
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 569433302087177489, guid: a57c6e2bd89a7444980bd76e8c627a83, type: 3}
       propertyPath: m_Materials.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 569433302087177489, guid: a57c6e2bd89a7444980bd76e8c627a83, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
     - target: {fileID: 569433302087177489, guid: a57c6e2bd89a7444980bd76e8c627a83, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
@@ -999,7 +1052,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1970751073826592866, guid: a57c6e2bd89a7444980bd76e8c627a83, type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 0.4
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1970751073826592866, guid: a57c6e2bd89a7444980bd76e8c627a83, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
@@ -1035,15 +1088,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7186776763196077203, guid: a57c6e2bd89a7444980bd76e8c627a83, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.02
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7186776763196077203, guid: a57c6e2bd89a7444980bd76e8c627a83, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.07610383
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7186776763196077203, guid: a57c6e2bd89a7444980bd76e8c627a83, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.056718946
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7186776763196077203, guid: a57c6e2bd89a7444980bd76e8c627a83, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1078,11 +1131,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a57c6e2bd89a7444980bd76e8c627a83, type: 3}
---- !u!198 &2016290325 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 1970751073826592866, guid: a57c6e2bd89a7444980bd76e8c627a83, type: 3}
-  m_PrefabInstance: {fileID: 2016290324}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2016290326 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7186776763196077203, guid: a57c6e2bd89a7444980bd76e8c627a83, type: 3}
@@ -1227,11 +1275,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2838221052120007729, guid: ec24fd5ebc48a4542a740ae45e7cabc8, type: 3}
   m_PrefabInstance: {fileID: 2125131530}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &2125131533 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 8731069198049042732, guid: ec24fd5ebc48a4542a740ae45e7cabc8, type: 3}
-  m_PrefabInstance: {fileID: 2125131530}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2146028474
 GameObject:
   m_ObjectHideFlags: 0
@@ -1244,6 +1287,7 @@ GameObject:
   - component: {fileID: 2146028475}
   - component: {fileID: 2146028477}
   - component: {fileID: 2146028479}
+  - component: {fileID: 2146028480}
   - component: {fileID: 2146028478}
   m_Layer: 8
   m_Name: Player2
@@ -1332,8 +1376,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 5
-  acceleration: 40
-  deceleration: 10
+  acceleration: 15
+  deceleration: 5
   knockbackForceMultiplier: 1
   otherPlayer: {fileID: 932883673}
   wall:
@@ -1402,35 +1446,24 @@ MonoBehaviour:
   otherPlayerLayer:
     serializedVersion: 2
     m_Bits: 128
-  meleeHitbox: {fileID: 0}
+  dashSpeed: 20
+  dashing: 0
+--- !u!114 &2146028480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146028474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9123d094158ec3f438de629bdd8872da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToMaxConcentration: 1
   damage: 1
-  meleeHitboxFilter:
-    useTriggers: 0
-    useLayerMask: 1
-    useDepth: 0
-    useOutsideDepth: 0
-    useNormalAngle: 0
-    useOutsideNormalAngle: 0
-    layerMask:
-      serializedVersion: 2
-      m_Bits: 128
-    minDepth: 0
-    maxDepth: 0
-    minNormalAngle: 0
-    maxNormalAngle: 0
-  baseMeleeDamage: 10
-  rangedAttack: {fileID: 0}
-  meleeAttack: {fileID: 0}
   initialShootAngle: 10
   rangedAttackCooldown: 1
-  dashCooldown: 1
-  otherMovementScript: {fileID: 932883671}
-  dashSpeed: 20
-  meleeCorrectionDistance: 0
-  meleeCorrectionSpeed: 0
-  meleeCorrectionMinDistance: 0
-  meleeCorrectionSpeedFallOff: 0
-  dashing: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
