@@ -68,6 +68,7 @@ public class AnimacaoMylii : MonoBehaviour
                 spriteRenderer.flipX = false;
                 animator.Play("corrediagtrasmylli");
                 currentAnimation = "ParDiagTrasMylli";
+                
             }
             if(movementDirection.x > 0 && movementDirection.y < 0)
             {
