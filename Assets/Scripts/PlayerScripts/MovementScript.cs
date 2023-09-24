@@ -39,6 +39,7 @@ public class MovementScript : MonoBehaviour
     public Transform otherPlayer;
     public LayerMask wall;
     public LayerMask floor;
+    public LayerMask endGame;
 
     #endregion
 
@@ -61,7 +62,7 @@ public class MovementScript : MonoBehaviour
         if (name == "Player1")
         {
             InputMenager.Instance.CharacterInput.Player.Move.performed -= OnMovePerformed;
-            InputMenager.Instance.CharacterInput.Player.Move.canceled -= OnMovePerformed;   
+            InputMenager.Instance.CharacterInput.Player.Move.canceled -= OnMovePerformed;
         }
         else
         {
@@ -79,17 +80,24 @@ public class MovementScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!Physics2D.OverlapCircle(transform.position, 0.3f, floor))
+        if (!Physics2D.OverlapCircle(transform.position, 0.3f, floor))
         {
-            _movement = _velocity * Time.deltaTime * (1.2f - Concentration);
+            _movement = _velocity * Time.deltaTime;
             transform.position += (Vector3)_movement;
+            if (Physics2D.OverlapCircle(transform.position, 0.5f, endGame))
+            {
+                GameMenagers.Instance.winner = name == "Player1" ? "Lougaan" : "Mylli" ;
+                GameMenagers.Instance.GameOver();
+                
+                Debug.Log("Game Over");
+            }
             return;
         }
         //calculate velocity
         CalculateVelocity();
 
         _movement = _velocity * Time.deltaTime * (1.2f - Concentration);
-        
+
         if (_movementInput.sqrMagnitude > 0)
         {
             WalkingDirection = _movement.normalized;
@@ -100,40 +108,42 @@ public class MovementScript : MonoBehaviour
             FacingDirection = otherPlayer.transform.position - transform.position;
             transform.up = FacingDirection;
         }
-        
+
+        int i = 0;
         if (Physics2D.OverlapCircle(transform.position + (Vector3)_movement, 0.5f, _baseChar.OtherPlayerLayer))
         {
             _movement = Vector2.zero;
             _velocity = Vector2.zero;
 
-            int i = 0;
+            i = 0;
             bool t;
-                do
-                {
-                    transform.position += -(Vector3)FacingDirection * 0.001f;
-                    //_velocity = Vector2.zero;
-                    i++;
-                    if (i > 100) break;
-                    t = Physics2D.OverlapCircle(transform.position, 0.5f, _baseChar.OtherPlayerLayer);
-                } while (t);
+            do
+            {
+                transform.position += -(Vector3)FacingDirection * 0.001f;
+                //_velocity = Vector2.zero;
+                i++;
+                if (i > 100) break;
+                t = Physics2D.OverlapCircle(transform.position, 0.5f, _baseChar.OtherPlayerLayer);
+            } while (t);
         }
 
-        // int i = 0;
-        // if (_baseChar.dashing)
-        //     if (Physics2D.OverlapCircle(transform.position, 0.5f, wall))
-        //     {
-        //         bool t;
-        //         do
-        //         {
-        //             _velocity = Vector2.zero;
-        //             i++;
-        //             if (i > 100) break;
-        //             t = Physics2D.OverlapCircle(transform.position, 0.5f, wall);
-        //         } while (t);
-        //     }
+        i = 0;
+        if (_baseChar.dashing)
+            if (Physics2D.OverlapCircle(transform.position, 0.5f, wall))
+            {
+                bool t;
+                do
+                {
+                    _velocity = Vector2.zero;
+                    i++;
+                    if (i > 100) break;
+                    t = Physics2D.OverlapCircle(transform.position, 0.5f, wall);
+                } while (t);
+            }
 
         //move the player
         transform.position += (Vector3)_movement;
+
 
     }
 
@@ -161,22 +171,25 @@ public class MovementScript : MonoBehaviour
             //calculate new velocity
             var newSpeed = Vector2.MoveTowards(_velocity, _movementInput * maxSpeed, (_slowed ? acceleration / 5 : (acceleration * Mathf.Clamp(1 - _baseChar.RangedAttackScript.ConcentrationPercentage, 0.35f, 9999))) * Time.deltaTime);
             //check if the new velocity not exceed the max speed and if the player is not trying to move in the opposite direction
-            if (Vector2.Dot(_velocity, _movementInput) > 0)
+            if (newSpeed.sqrMagnitude < maxSpeed * maxSpeed)
             {
-                if (newSpeed.sqrMagnitude < maxSpeed * maxSpeed)
-                {
-                    _velocity = newSpeed;
-                }
+                _velocity = newSpeed;
             }
-            else
-            {
-                _velocity += (newSpeed - _velocity) / 2;
-            }
+            // if (Vector2.Dot(_velocity, _movementInput) > 0)
+            // {
+
+            // }
+            // else
+            // {
+            //     _velocity += (newSpeed - _velocity) / 2;
+            // }
         }
 
         //apply drag
         //_velocity = Vector2.Lerp(_velocity, Vector2.zero, deceleration * Time.deltaTime);
         _velocity = Vector2.MoveTowards(_velocity, Vector2.zero, deceleration * Time.deltaTime);
+
+
 
         if (_baseChar != null && _velocity.sqrMagnitude <= maxSpeed * maxSpeed)
         {
@@ -198,6 +211,7 @@ public class MovementScript : MonoBehaviour
         knockbackForceMultiplier += damage / 100;
         ApplyForce(force, true);
         Stun(stunTime);
+        GameMenagers.Instance.UpdateHealthBar(3 - (knockbackForceMultiplier / 3), (name == "Player1" ? 2 : 1));
     }
 
     public void Stun(float time, OnEndOfStun onEndOfStunEvent = null)

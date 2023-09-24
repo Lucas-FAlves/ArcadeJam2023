@@ -47,11 +47,20 @@ public class BaseChar : MonoBehaviour
         if(name == "Player1")
         {
             otherMovementScript = GameObject.Find("Player2").GetComponent<MovementScript>();
+             
         }
         else
         {
             otherMovementScript = GameObject.Find("Player1").GetComponent<MovementScript>();
         }
+        GameMenagers.Instance.OnGameOver += GameOver;
+    }
+
+    private void GameOver()
+    {
+        MovementScript.enabled = false;
+        MeleeAttackScript.enabled = false;
+        RangedAttackScript.enabled = false;
     }
 
     private void OnEnable()
