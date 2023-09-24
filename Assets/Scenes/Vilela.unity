@@ -711,8 +711,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movement: {x: 0, y: 0}
   maxSpeed: 5
-  acceleration: 15
-  deceleration: 5
+  acceleration: 25
+  deceleration: 10
   knockbackForceMultiplier: 1
   otherPlayer: {fileID: 2146028476}
   wall:
@@ -723,7 +723,7 @@ MonoBehaviour:
     m_Bits: 1024
   endGame:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
 --- !u!212 &932883672
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -810,7 +810,7 @@ MonoBehaviour:
   otherPlayerLayer:
     serializedVersion: 2
     m_Bits: 256
-  dashSpeed: 7.5
+  dashSpeed: 10
   dashing: 0
 --- !u!58 &932883675
 CircleCollider2D:
@@ -2305,7 +2305,7 @@ MonoBehaviour:
     m_Bits: 1024
   endGame:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
 --- !u!61 &2146028478
 BoxCollider2D:
   m_ObjectHideFlags: 0
