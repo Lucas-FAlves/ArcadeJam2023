@@ -25,6 +25,11 @@ public class GameMenagers : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        //AudioManager.instance.PlaySound("Fight_Song1");
+    }
+
     public void UpdateHealthBar(float health, int player)
     {
         healthBar[player - 1].SetHealth(health);
