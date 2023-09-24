@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -41,7 +42,7 @@ public class MovementScript : MonoBehaviour
 
     #endregion
 
-    void OnEnable()
+    private void OnEnable()
     {
         if (name == "Player1")
         {
@@ -55,12 +56,12 @@ public class MovementScript : MonoBehaviour
         }
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
-        if (name == "Player2")
+        if (name == "Player1")
         {
             InputMenager.Instance.CharacterInput.Player.Move.performed -= OnMovePerformed;
-            InputMenager.Instance.CharacterInput.Player.Move.canceled -= OnMovePerformed;
+            InputMenager.Instance.CharacterInput.Player.Move.canceled -= OnMovePerformed;   
         }
         else
         {
@@ -87,13 +88,8 @@ public class MovementScript : MonoBehaviour
         //calculate velocity
         CalculateVelocity();
 
-        
         _movement = _velocity * Time.deltaTime * (1.2f - Concentration);
         
-
-        //move the player
-//        if(name == "Player2") Debug.Log(_slowed);
-        transform.position += (Vector3)_movement;
         if (_movementInput.sqrMagnitude > 0)
         {
             WalkingDirection = _movement.normalized;
@@ -105,41 +101,57 @@ public class MovementScript : MonoBehaviour
             transform.up = FacingDirection;
         }
         
-        if (Physics2D.OverlapCircle(transform.position, 0.5f, _baseChar.OtherPlayerLayer))
+        if (Physics2D.OverlapCircle(transform.position + (Vector3)_movement, 0.5f, _baseChar.OtherPlayerLayer))
         {
-            PullPlayer(true);
-        }
-        int i = 0;
-        if (_baseChar.dashing)
-            if (Physics2D.OverlapCircle(transform.position, 0.5f, wall))
-            {
-                bool t;
+            _movement = Vector2.zero;
+            _velocity = Vector2.zero;
+
+            int i = 0;
+            bool t;
                 do
                 {
-                    _velocity = Vector2.zero;
+                    transform.position += -(Vector3)FacingDirection * 0.001f;
+                    //_velocity = Vector2.zero;
                     i++;
                     if (i > 100) break;
-                    t = Physics2D.OverlapCircle(transform.position, 0.5f, wall);
+                    t = Physics2D.OverlapCircle(transform.position, 0.5f, _baseChar.OtherPlayerLayer);
                 } while (t);
-            }
+        }
+
+        // int i = 0;
+        // if (_baseChar.dashing)
+        //     if (Physics2D.OverlapCircle(transform.position, 0.5f, wall))
+        //     {
+        //         bool t;
+        //         do
+        //         {
+        //             _velocity = Vector2.zero;
+        //             i++;
+        //             if (i > 100) break;
+        //             t = Physics2D.OverlapCircle(transform.position, 0.5f, wall);
+        //         } while (t);
+        //     }
+
+        //move the player
+        transform.position += (Vector3)_movement;
 
     }
 
-    public void PullPlayer(bool first)
-    {
-        int i = 0;
-        bool t;
-            do
-            {
-                transform.position += -(Vector3)FacingDirection * 0.001f;
-                //_velocity = Vector2.zero;
-                if(first)
-                    _baseChar.OtherMovementScript.PullPlayer(false);
-                i++;
-                if (i > 100) break;
-                t = Physics2D.OverlapCircle(transform.position, 0.5f, _baseChar.OtherPlayerLayer);
-            } while (t);
-    }
+    // public void PullPlayer(bool first)
+    // {
+    //     int i = 0;
+    //     bool t;
+    //         do
+    //         {
+    //             transform.position += -(Vector3)FacingDirection * 0.001f;
+    //             //_velocity = Vector2.zero;
+    //             if(first)
+    //                 _baseChar.OtherMovementScript.PullPlayer(false);
+    //             i++;
+    //             if (i > 100) break;
+    //             t = Physics2D.OverlapCircle(transform.position, 0.5f, _baseChar.OtherPlayerLayer);
+    //         } while (t);
+    // }
 
     private void CalculateVelocity()
     {
@@ -147,7 +159,7 @@ public class MovementScript : MonoBehaviour
         if (_movementInput.sqrMagnitude > 0 && !_stunned)
         {
             //calculate new velocity
-            var newSpeed = Vector2.MoveTowards(_velocity, _movementInput * maxSpeed, _slowed ? acceleration / 5 : acceleration * Time.deltaTime);
+            var newSpeed = Vector2.MoveTowards(_velocity, _movementInput * maxSpeed, (_slowed ? acceleration / 5 : (acceleration * Mathf.Clamp(1 - _baseChar.RangedAttackScript.ConcentrationPercentage, 0.35f, 9999))) * Time.deltaTime);
             //check if the new velocity not exceed the max speed and if the player is not trying to move in the opposite direction
             if (Vector2.Dot(_velocity, _movementInput) > 0)
             {
@@ -181,17 +193,18 @@ public class MovementScript : MonoBehaviour
             _velocity = force;
     }
 
-    public void Hit(Vector2 force, float damage)
+    public void Hit(Vector2 force, float damage, float stunTime)
     {
         knockbackForceMultiplier += damage / 100;
         ApplyForce(force, true);
+        Stun(stunTime);
     }
 
     public void Stun(float time, OnEndOfStun onEndOfStunEvent = null)
     {
         if (!_stunned)
         {
-            StartCoroutine(StunCoroutine(time, onEndOfStunEvent != null ? onEndOfStunEvent : null));
+            StartCoroutine(StunCoroutine(time, onEndOfStunEvent ?? null));
         }
     }
 
@@ -228,8 +241,7 @@ public class MovementScript : MonoBehaviour
     private void OnMovePerformed(InputAction.CallbackContext ctx)
     {
         //get the movement input
-        if (!_stunned)
-            _movementInput = ctx.ReadValue<Vector2>();
+        _movementInput = ctx.ReadValue<Vector2>();
     }
 
 
