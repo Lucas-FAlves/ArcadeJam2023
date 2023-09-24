@@ -11,7 +11,7 @@ public class AnimacaoLougaan : MonoBehaviour
     float horizontalInput;
     // Obtém o componente SpriteRenderer.
     SpriteRenderer spriteRenderer;
-
+    private string currentAnimation = "ParFrenLou";
     // Inverte a renderização horizontalmente.
 
     float verticalInput;
@@ -32,8 +32,8 @@ public class AnimacaoLougaan : MonoBehaviour
         rotatoin.z = 0f;
         transform.rotation = Quaternion.Euler(rotatoin);
 
-        horizontalInput = Input.GetAxis("Horizontal");
-        verticalInput = Input.GetAxis("Vertical");
+        horizontalInput = movementScript._movement.x;
+        verticalInput = movementScript._movement.y;
 
         movementDirection = new Vector2(horizontalInput, verticalInput).normalized;
         Debug.Log(movementDirection);
@@ -45,41 +45,51 @@ public class AnimacaoLougaan : MonoBehaviour
             {
                 spriteRenderer.flipX = false;
                 animator.Play("correladolougaan");
+                currentAnimation = "ParLadLou";
             }
             if(movementDirection.x < 0 && movementDirection.y == 0)
             {
                 spriteRenderer.flipX = true;
                 animator.Play("correladolougaan");
+                currentAnimation = "ParLadLou";
             }
             if(movementDirection.y > 0 && movementDirection.x == 0)
             {
                 animator.Play("corretraslougaan");
+                currentAnimation = "ParTrasLou";
             }
             if(movementDirection.y < 0 && movementDirection.x == 0)
             {
                 animator.Play("correfrentelougaan");
+                currentAnimation = "ParFrenLou";
             }
             if(movementDirection.x > 0 && movementDirection.y > 0)
             {
                 spriteRenderer.flipX = false;
                 animator.Play("corrediagtraslougaan");
+                currentAnimation = "ParDiagTrasLou";
             }
             if(movementDirection.x > 0 && movementDirection.y < 0)
             {
                 spriteRenderer.flipX = false;
                 animator.Play("corrediagfrentelougaan");
+                currentAnimation = "ParDiagFrenLou";
             }
             if(movementDirection.x < 0 && movementDirection.y > 0)
             {
                 spriteRenderer.flipX = true;
                 animator.Play("corrediagtraslougaan");
+                currentAnimation = "ParDiagTrasLou";
             }
             if(movementDirection.x < 0 && movementDirection.y < 0)
             {
                 spriteRenderer.flipX = true;
                 animator.Play("corrediagfrentelougaan");
+                currentAnimation = "ParDiagFrenLou";
             }
+        }else{
+            animator.Play(currentAnimation);
+        }
     }
-}
 
 }

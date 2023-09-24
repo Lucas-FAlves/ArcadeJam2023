@@ -11,7 +11,7 @@ public class AnimacaoMylii : MonoBehaviour
     float horizontalInput;
     // Obtém o componente SpriteRenderer.
     SpriteRenderer spriteRenderer;
-
+    private string currentAnimation = "ParFrenMylli";
     // Inverte a renderização horizontalmente.
 
     float verticalInput;
@@ -32,8 +32,8 @@ public class AnimacaoMylii : MonoBehaviour
         rotatoin.z = 0f;
         transform.rotation = Quaternion.Euler(rotatoin);
 
-        horizontalInput = Input.GetAxis("Horizontal");
-        verticalInput = Input.GetAxis("Vertical");
+        horizontalInput = movementScript._movement.x;
+        verticalInput = movementScript._movement.y;
 
         movementDirection = new Vector2(horizontalInput, verticalInput).normalized;
         Debug.Log(movementDirection);
@@ -45,41 +45,51 @@ public class AnimacaoMylii : MonoBehaviour
             {
                 spriteRenderer.flipX = false;
                 animator.Play("correladomylli");
+                currentAnimation = "ParLadoMylli";
             }
             if(movementDirection.x < 0 && movementDirection.y == 0)
             {
                 spriteRenderer.flipX = true;
                 animator.Play("correladomylli");
+                currentAnimation = "ParLadoMylli";
             }
             if(movementDirection.y > 0 && movementDirection.x == 0)
             {
                 animator.Play("corretrasmylli");
+                currentAnimation = "ParTrasMylli";
             }
             if(movementDirection.y < 0 && movementDirection.x == 0)
             {
                 animator.Play("correfrentemylli");
+                currentAnimation = "ParFrenMylli";
             }
             if(movementDirection.x > 0 && movementDirection.y > 0)
             {
                 spriteRenderer.flipX = false;
                 animator.Play("corrediagtrasmylli");
+                currentAnimation = "ParDiagTrasMylli";
             }
             if(movementDirection.x > 0 && movementDirection.y < 0)
             {
                 spriteRenderer.flipX = false;
                 animator.Play("corrediagfrentemylli");
+                currentAnimation = "ParDiagFrenMylli";
             }
             if(movementDirection.x < 0 && movementDirection.y > 0)
             {
                 spriteRenderer.flipX = true;
                 animator.Play("corrediagtrasmylli");
+                currentAnimation = "ParDiagTrasMylli";
             }
             if(movementDirection.x < 0 && movementDirection.y < 0)
             {
                 spriteRenderer.flipX = true;
                 animator.Play("corrediagfrentemylli");
+                currentAnimation = "ParDiagFrenMylli";
             }
+        }else{
+            animator.Play(currentAnimation);
+        }
     }
-}
 
 }
