@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimacaoMylii : MonoBehaviour
+public class AnimacaoLougaan : MonoBehaviour
 {
     public Animator animator;
     public BaseChar baseChar;
@@ -44,40 +44,40 @@ public class AnimacaoMylii : MonoBehaviour
             if(movementDirection.x > 0 && movementDirection.y == 0)
             {
                 spriteRenderer.flipX = false;
-                animator.Play("correladomylli");
+                animator.Play("correladolougaan");
             }
             if(movementDirection.x < 0 && movementDirection.y == 0)
             {
                 spriteRenderer.flipX = true;
-                animator.Play("correladomylli");
+                animator.Play("correladolougaan");
             }
             if(movementDirection.y > 0 && movementDirection.x == 0)
             {
-                animator.Play("corretrasmylli");
+                animator.Play("corretraslougaan");
             }
             if(movementDirection.y < 0 && movementDirection.x == 0)
             {
-                animator.Play("correfrentemylli");
+                animator.Play("correfrentelougaan");
             }
             if(movementDirection.x > 0 && movementDirection.y > 0)
             {
                 spriteRenderer.flipX = false;
-                animator.Play("corrediagtrasmylli");
+                animator.Play("corrediagtraslougaan");
             }
             if(movementDirection.x > 0 && movementDirection.y < 0)
             {
                 spriteRenderer.flipX = false;
-                animator.Play("corrediagfrentemylli");
+                animator.Play("corrediagfrentelougaan");
             }
             if(movementDirection.x < 0 && movementDirection.y > 0)
             {
                 spriteRenderer.flipX = true;
-                animator.Play("corrediagtrasmylli");
+                animator.Play("corrediagtraslougaan");
             }
             if(movementDirection.x < 0 && movementDirection.y < 0)
             {
                 spriteRenderer.flipX = true;
-                animator.Play("corrediagfrentemylli");
+                animator.Play("corrediagfrentelougaan");
             }
     }
 }
