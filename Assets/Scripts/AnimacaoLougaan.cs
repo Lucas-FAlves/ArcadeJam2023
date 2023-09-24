@@ -14,11 +14,15 @@ public class AnimacaoLougaan : MonoBehaviour
     private string currentAnimation = "ParFrenLou";
     // Inverte a renderização horizontalmente.
 
+
+    private MeleeAttackScript meleeAttackScript;
+
     float verticalInput;
     Vector2 movementDirection;
     // Start is called before the first frame update
     void Start()
     {
+        //meleeAttackScript = GetComponent<MeleeAttackScript>();    
         spriteRenderer = GetComponent<SpriteRenderer>();
         Animator animator = GetComponent<Animator>();
         MovementScript movementScript = GetComponent<MovementScript>();
@@ -36,14 +40,20 @@ public class AnimacaoLougaan : MonoBehaviour
         verticalInput = movementScript._movement.y;
 
         movementDirection = new Vector2(horizontalInput, verticalInput).normalized;
-        Debug.Log(movementDirection);
+        //Debug.Log(movementDirection);
         //animator.SetTrigger("frente");
+
+        //if(meleeAttackScript.attacking)
+        //{
+            //////////////////////////////////////////////////
+        //}
 
         if (movementDirection.sqrMagnitude > 0)
         {
             if(movementDirection.x > 0 && movementDirection.y == 0)
             {
                 spriteRenderer.flipX = false;
+                if(baseChar.dashing)
                 animator.Play("correladolougaan");
                 currentAnimation = "ParLadLou";
             }

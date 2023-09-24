@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2ae98f20c05f776419ad34dfea19b0c9
+guid: 9f4faa5beb2d0c0438c401b4bf8e0677
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: dash_lougaan_frente_0
+      name: mylli_ataque_lado_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 204
-        width: 48
-        height: 34
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0998ba6d88a320445a93b03e5b94fbda
-      internalID: -887226228
+      spriteID: 27132a3d23b9fde4f932846bd0477912
+      internalID: -578783274
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dash_lougaan_frente_1
+      name: mylli_ataque_lado_1
       rect:
         serializedVersion: 2
         x: 0
-        y: 170
-        width: 48
-        height: 34
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d604c7a27f1ede442a52084475ea05cf
-      internalID: 1272218403
+      spriteID: c640b9484878730499523d5343f60303
+      internalID: -1596810823
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dash_lougaan_frente_2
+      name: mylli_ataque_lado_2
       rect:
         serializedVersion: 2
         x: 0
-        y: 136
-        width: 48
-        height: 34
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,83 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 05150c7bb908be94d993ec8876e46cd3
-      internalID: -181390707
+      spriteID: 69b42223cacdd3d4f952f93d596a9b05
+      internalID: 203145988
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dash_lougaan_frente_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 102
-        width: 48
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 896140b2a16492045b52645942009515
-      internalID: 1641151719
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dash_lougaan_frente_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 68
-        width: 48
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0c6cf311c925bff459f73e1d86fa084b
-      internalID: -1596012787
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dash_lougaan_frente_5
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 34
-        width: 48
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ddd9b6b1175f158468595cff2c72e8b2
-      internalID: 952631572
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dash_lougaan_frente_6
+      name: mylli_ataque_lado_3
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
-        height: 34
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -250,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f079831cae3a0ad4baf44ff883529132
-      internalID: 1240635294
+      spriteID: f3c0246ada2b17f4996311183e03a287
+      internalID: -1176388624
       vertices: []
       indices: 
       edges: []
@@ -267,13 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      dash_lougaan_frente_0: -887226228
-      dash_lougaan_frente_1: 1272218403
-      dash_lougaan_frente_2: -181390707
-      dash_lougaan_frente_3: 1641151719
-      dash_lougaan_frente_4: -1596012787
-      dash_lougaan_frente_5: 952631572
-      dash_lougaan_frente_6: 1240635294
+      mylli_ataque_lado_0: -578783274
+      mylli_ataque_lado_1: -1596810823
+      mylli_ataque_lado_2: 203145988
+      mylli_ataque_lado_3: -1176388624
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
