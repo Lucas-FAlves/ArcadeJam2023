@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,637 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Lougaan parado-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 336
+        width: 24
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 731f4c088fd1ae149ae019aaf2f641b5
+      internalID: -512831223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lougaan parado-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 336
+        width: 23
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1ae983184fd044428f25fe4389f69ce
+      internalID: 958655126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lougaan parado-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 336
+        width: 20
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76c09ffd238e9de44bb8c8a65e35b1f5
+      internalID: 1438120104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lougaan parado-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 336
+        width: 23
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0edaaa25d4ae2844aba8e07476cb7162
+      internalID: 1006146352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lougaan parado-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 336
+        width: 25
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd4a9ccdc71058146995872d51bb695c
+      internalID: 1057316580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lougaan parado-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 272
+        width: 24
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 726040d6248b1a54b98bfeb4e2c122ec
+      internalID: 1900611528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lougaan parado-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 272
+        width: 23
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25fa437442426494fb62b08c2aadaed6
+      internalID: 184554583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lougaan parado-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 272
+        width: 20
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 766a70a17a0d9ca40ad7686daeb2e662
+      internalID: 1769253558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lougaan parado-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 272
+        width: 23
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0abf1df911aeb3c40b542c2537139392
+      internalID: -1401457382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lougaan parado-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 272
+        width: 25
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3eb122d97461eef4c89f92bd667dc988
+      internalID: 656481850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lougaan parado-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 208
+        width: 24
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59130f03743ef0c459a20d9164b015b7
+      internalID: 539817865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lougaan parado-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 208
+        width: 23
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8aa874a77a0264f4982582e68c6ea4f5
+      internalID: 577527466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lougaan parado-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 208
+        width: 20
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 152bb7dc69fccc34f8e7635ec3c7ad77
+      internalID: 1032003004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lougaan parado-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 208
+        width: 23
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29318643fb8048c4393b608d44940af1
+      internalID: 113850782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lougaan parado-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 208
+        width: 25
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f82c30deaf9496d48ae88fe45bcf7813
+      internalID: -994651812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lougaan parado-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 144
+        width: 24
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a5a9d5745658d04199cbaa5a4370ad3
+      internalID: 105961617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lougaan parado-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 144
+        width: 23
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d62e5b6bbf31cec4dba1406a669fcd2f
+      internalID: 450634093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lougaan parado-Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 144
+        width: 20
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bb0379fdefbdc24aba7e3e2454f723e
+      internalID: 108655804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lougaan parado-Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 144
+        width: 23
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17f929f498ba0304faf5c2eb2c5fe0ea
+      internalID: -672130227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lougaan parado-Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 144
+        width: 25
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b19fbeb5ddb6a0b41acee69d559e6ec5
+      internalID: 454353066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lougaan parado-Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 80
+        width: 24
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d29deac8914f9174abfd1e399511b4bb
+      internalID: 1564876155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lougaan parado-Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 80
+        width: 23
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bddc3c6c4f613b04280fc882142b7c95
+      internalID: -153336248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lougaan parado-Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 80
+        width: 20
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33b8f1f523e04e640950a25fcb379647
+      internalID: 881762817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lougaan parado-Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 80
+        width: 23
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff67f3b8be49b97459b677e3f5be413e
+      internalID: -1122704490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lougaan parado-Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 80
+        width: 25
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 067bca00c96fa624895e1a874d32298f
+      internalID: 1683659536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lougaan parado-Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 16
+        width: 24
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 022cad5a9b6696344aff97567d994c34
+      internalID: -345129030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lougaan parado-Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 16
+        width: 23
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 441558c1c80b07a49b529bdb8508266d
+      internalID: 1351160437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lougaan parado-Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 16
+        width: 20
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73b52cfb8e8d6bc47a8cb873ba6be541
+      internalID: 791409227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lougaan parado-Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 16
+        width: 23
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdea59438ad54cc4f97da8b3211314d0
+      internalID: 198686130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lougaan parado-Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 16
+        width: 25
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82044ddb3e09d6442a4bcdf1859c8166
+      internalID: 654586545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +749,37 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Lougaan parado-Sheet_0: -512831223
+      Lougaan parado-Sheet_1: 958655126
+      Lougaan parado-Sheet_10: 539817865
+      Lougaan parado-Sheet_11: 577527466
+      Lougaan parado-Sheet_12: 1032003004
+      Lougaan parado-Sheet_13: 113850782
+      Lougaan parado-Sheet_14: -994651812
+      Lougaan parado-Sheet_15: 105961617
+      Lougaan parado-Sheet_16: 450634093
+      Lougaan parado-Sheet_17: 108655804
+      Lougaan parado-Sheet_18: -672130227
+      Lougaan parado-Sheet_19: 454353066
+      Lougaan parado-Sheet_2: 1438120104
+      Lougaan parado-Sheet_20: 1564876155
+      Lougaan parado-Sheet_21: -153336248
+      Lougaan parado-Sheet_22: 881762817
+      Lougaan parado-Sheet_23: -1122704490
+      Lougaan parado-Sheet_24: 1683659536
+      Lougaan parado-Sheet_25: -345129030
+      Lougaan parado-Sheet_26: 1351160437
+      Lougaan parado-Sheet_27: 791409227
+      Lougaan parado-Sheet_28: 198686130
+      Lougaan parado-Sheet_29: 654586545
+      Lougaan parado-Sheet_3: 1006146352
+      Lougaan parado-Sheet_4: 1057316580
+      Lougaan parado-Sheet_5: 1900611528
+      Lougaan parado-Sheet_6: 184554583
+      Lougaan parado-Sheet_7: 1769253558
+      Lougaan parado-Sheet_8: -1401457382
+      Lougaan parado-Sheet_9: 656481850
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -12,7 +12,7 @@ public class MovementScript : MonoBehaviour
     #region Variables and Properties
     //Private Variables
     private Vector2 _velocity;
-    private Vector2 _movement;
+    public Vector2 _movement;
     private Vector2 _movementInput;
     private bool _stunned = false;
     private bool _slowed = false;
