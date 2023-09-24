@@ -4,14 +4,23 @@ using UnityEngine;
 
 public class ParticleCollisionController : MonoBehaviour
 {
-    public float force = 10f;
-    public float damage = 1;
+    private float damage = 1;
+    private float stunTime ;
     private MovementScript otherMovementScript;
-    private ParticleSystem ps;
+    public ParticleSystem Ps{get; private set;}
     ParticleSystem.Particle[] particles = new ParticleSystem.Particle[8];
 
     private void Awake() {
-        ps = GetComponent<ParticleSystem>();
+        Ps = GetComponent<ParticleSystem>();
+    }
+
+    public void Shoot(float angle, float damage, float stunTime)
+    {
+        var shape = Ps.shape;
+        shape.angle = angle;
+        Ps.Emit(1);
+        this.damage = damage;
+        this.stunTime = stunTime;
     }
 
     private void OnParticleCollision(GameObject other) {
@@ -19,7 +28,7 @@ public class ParticleCollisionController : MonoBehaviour
             otherMovementScript = other.GetComponent<MovementScript>();
 
         
-        ps.GetParticles(particles);
+        Ps.GetParticles(particles);
         Vector3 otherPos = Vector3.zero;
         foreach(var p in particles)
             if(p.position != Vector3.zero)
@@ -27,7 +36,7 @@ public class ParticleCollisionController : MonoBehaviour
                 otherPos = p.position;
                 break;
             }
-        otherMovementScript.Hit((Vector2)(other.transform.position - otherPos).normalized * force, damage);
+        otherMovementScript.Hit((Vector2)(other.transform.position - transform.position).normalized * damage, damage, stunTime);
 
     }
 }
