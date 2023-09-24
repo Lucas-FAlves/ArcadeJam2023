@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Animacao : MonoBehaviour
+public class AnimacaoMylii : MonoBehaviour
 {
     public Animator animator;
     public BaseChar baseChar;
@@ -12,7 +12,7 @@ public class Animacao : MonoBehaviour
     // Obtém o componente SpriteRenderer.
     SpriteRenderer spriteRenderer;
 
-// Inverte a renderização horizontalmente.
+    // Inverte a renderização horizontalmente.
 
     float verticalInput;
     Vector2 movementDirection;
@@ -44,40 +44,40 @@ public class Animacao : MonoBehaviour
             if(movementDirection.x > 0 && movementDirection.y == 0)
             {
                 spriteRenderer.flipX = true;
-                animator.Play("CORRLadoES");
+                animator.Play("correladomylii");
             }
             if(movementDirection.x < 0 && movementDirection.y == 0)
             {
                 spriteRenderer.flipX = false;
-                animator.Play("CORRLadoES");
+                animator.Play("correladomylii");
             }
             if(movementDirection.y > 0 && movementDirection.x == 0)
             {
-                animator.Play("CORRCost");
+                animator.Play("corretrasmylii");
             }
             if(movementDirection.y < 0 && movementDirection.x == 0)
             {
-                animator.Play("CORRFrente");
+                animator.Play("correfrentemylii");
             }
             if(movementDirection.x > 0 && movementDirection.y > 0)
             {
                 spriteRenderer.flipX = true;
-                animator.Play("CORRCostES");
+                animator.Play("corrediagtrasmylii");
             }
             if(movementDirection.x > 0 && movementDirection.y < 0)
             {
                 spriteRenderer.flipX = true;
-                animator.Play("CORRDiagFreES");
+                animator.Play("corrediagfrentemylii");
             }
             if(movementDirection.x < 0 && movementDirection.y > 0)
             {
                 spriteRenderer.flipX = false;
-                animator.Play("CORRCostES");
+                animator.Play("corrediagtrasmylii");
             }
             if(movementDirection.x < 0 && movementDirection.y < 0)
             {
                 spriteRenderer.flipX = false;
-                animator.Play("CORRDiagFreES");
+                animator.Play("corrediagfrentemylii");
             }
     }
 }
