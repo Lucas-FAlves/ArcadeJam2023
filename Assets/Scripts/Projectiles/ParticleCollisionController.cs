@@ -12,6 +12,7 @@ public class ParticleCollisionController : MonoBehaviour
 
     private void Awake() {
         Ps = GetComponent<ParticleSystem>();
+        
     }
 
     public void Shoot(float angle, float damage, float stunTime)

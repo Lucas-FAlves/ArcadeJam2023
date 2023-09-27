@@ -45,11 +45,11 @@ public class AnimacaoMylii : MonoBehaviour
         Debug.Log(meleeAttackScript.attacking);
         //animator.SetTrigger("frente");
 
-        if(meleeAttackScript.attacking)
+        /*if(meleeAttackScript.attacking)
         {
             animator.Play("FrenAtackMylli");
             currentAnimation = "ParFrenMylli";
-        }
+        }*/
 
         
 
