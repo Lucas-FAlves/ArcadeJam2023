@@ -211,7 +211,7 @@ public class MovementScript : MonoBehaviour
         knockbackForceMultiplier += damage / 100;
         ApplyForce(force, true);
         Stun(stunTime);
-        GameMenagers.Instance.UpdateHealthBar(3 - (knockbackForceMultiplier / 3), (name == "Player1" ? 2 : 1));
+        GameMenagers.Instance.UpdateHealthBar(2 - (knockbackForceMultiplier), (name == "Player1" ? 2 : 1));
     }
 
     public void Stun(float time, OnEndOfStun onEndOfStunEvent = null)

@@ -58,9 +58,9 @@ public class BaseChar : MonoBehaviour
 
     private void GameOver()
     {
-        MovementScript.enabled = false;
-        MeleeAttackScript.enabled = false;
-        RangedAttackScript.enabled = false;
+        // MovementScript.enabled = false;
+        // MeleeAttackScript.enabled = false;
+        // RangedAttackScript.enabled = false;
     }
 
     private void OnEnable()
