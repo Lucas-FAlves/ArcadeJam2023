@@ -151,6 +151,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3795351436790723219, guid: 0efd83a9b95660143b56a576f3714b12, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3795351436790723219, guid: 0efd83a9b95660143b56a576f3714b12, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4729228910127606053, guid: 0efd83a9b95660143b56a576f3714b12, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -852,6 +860,7 @@ GameObject:
   - component: {fileID: 932883675}
   - component: {fileID: 932883676}
   - component: {fileID: 932883677}
+  - component: {fileID: 932883678}
   m_Layer: 7
   m_Name: Player1
   m_TagString: Untagged
@@ -947,7 +956,7 @@ Transform:
   m_GameObject: {fileID: 932883670}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.09, y: 1.94, z: 0}
+  m_LocalPosition: {x: -2.09, y: 1.94, z: -0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1064,6 +1073,33 @@ MonoBehaviour:
   damage: 3
   initialShootAngle: 10
   rangedAttackCooldown: 1
+--- !u!50 &932883678
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932883670}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &989403708
 GameObject:
   m_ObjectHideFlags: 0
@@ -1713,7 +1749,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.06393957, y: 1.8445715}
@@ -2214,6 +2250,7 @@ GameObject:
   - component: {fileID: 2146028478}
   - component: {fileID: 2146028480}
   - component: {fileID: 2146028481}
+  - component: {fileID: 2146028483}
   m_Layer: 8
   m_Name: Player2
   m_TagString: Untagged
@@ -2282,7 +2319,7 @@ Transform:
   m_GameObject: {fileID: 2146028474}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.26, y: 2.01, z: 0}
+  m_LocalPosition: {x: 2.26, y: 2.01, z: -0.2}
   m_LocalScale: {x: 1, y: 1.0175778, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2456,6 +2493,33 @@ MonoBehaviour:
   meleeCorrectionSpeed: 2
   meleeCorrectionMinDistance: 1
   meleeCorrectionSpeedFallOff: 0
+--- !u!50 &2146028483
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146028474}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
