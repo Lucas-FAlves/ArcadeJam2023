@@ -29,6 +29,7 @@ public class MovementScript : MonoBehaviour
     //Public Variables
 
     //Properties
+    private Rigidbody2D rb;
     public Vector2 Velocity { get => _velocity; }
     public Vector2 WalkingDirection { get; private set; }
     public Vector2 FacingDirection { get; private set; }
@@ -75,6 +76,7 @@ public class MovementScript : MonoBehaviour
     {
         Concentration = 0f;
         _baseChar = GetComponent<BaseChar>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -83,7 +85,8 @@ public class MovementScript : MonoBehaviour
         if (!Physics2D.OverlapCircle(transform.position, 0.3f, floor))
         {
             _movement = _velocity * Time.deltaTime;
-            transform.position += (Vector3)_movement;
+            rb.velocity = _movement;
+            //transform.position += (Vector3)_movement;
             if (Physics2D.OverlapCircle(transform.position, 0.5f, endGame))
             {
                 GameMenagers.Instance.winner = name == "Player1" ? "Lougaan" : "Mylli" ;
@@ -97,6 +100,8 @@ public class MovementScript : MonoBehaviour
         CalculateVelocity();
 
         _movement = _velocity * Time.deltaTime * (1.2f - Concentration);
+        rb.velocity = _movement;
+
 
         if (_movementInput.sqrMagnitude > 0)
         {
