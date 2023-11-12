@@ -85,8 +85,8 @@ public class MovementScript : MonoBehaviour
         if (!Physics2D.OverlapCircle(transform.position, 0.3f, floor))
         {
             _movement = _velocity * Time.deltaTime;
-            rb.velocity = _movement;
-            Debug.Log(_movement);
+            rb.velocity = new Vector2(_movement.x,_movement.y);
+            
             //transform.position += (Vector3)_movement;
             if (Physics2D.OverlapCircle(transform.position, 0.5f, endGame))
             {
@@ -101,7 +101,7 @@ public class MovementScript : MonoBehaviour
         CalculateVelocity();
 
         _movement = _velocity * Time.deltaTime * (1.2f - Concentration);
-        rb.velocity = _movement;
+        rb.velocity = new Vector2(_movement.x, _movement.y);
 
 
         if (_movementInput.sqrMagnitude > 0)
@@ -126,6 +126,7 @@ public class MovementScript : MonoBehaviour
             do
             {
                 transform.position += -(Vector3)FacingDirection * 0.001f;
+                rb.velocity += -(Vector2)FacingDirection * 0.001f;
                 //_velocity = Vector2.zero;
                 i++;
                 if (i > 100) break;
@@ -149,7 +150,9 @@ public class MovementScript : MonoBehaviour
 
         //move the player
         //transform.position += (Vector3)_movement;
-        rb.velocity = _movement;
+        Debug.Log(_movement);
+        Debug.Log(rb.velocity);
+        rb.velocity += new Vector2(_movement.x, _movement.y);
 
 
     }
