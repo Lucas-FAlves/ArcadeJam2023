@@ -86,6 +86,7 @@ public class MovementScript : MonoBehaviour
         {
             _movement = _velocity * Time.deltaTime;
             rb.velocity = _movement;
+            Debug.Log(_movement);
             //transform.position += (Vector3)_movement;
             if (Physics2D.OverlapCircle(transform.position, 0.5f, endGame))
             {
@@ -147,7 +148,8 @@ public class MovementScript : MonoBehaviour
             }
 
         //move the player
-        transform.position += (Vector3)_movement;
+        //transform.position += (Vector3)_movement;
+        rb.velocity = _movement;
 
 
     }
