@@ -838,6 +838,15 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Shotgun"",
+                    ""type"": ""Button"",
+                    ""id"": ""6f134016-a4b8-4cad-ad8d-23fc2ecae082"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -961,6 +970,17 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
                     ""action"": ""Fire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""00b65bca-c8d1-48db-99bd-4c6a1cdd6b23"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Shotgun"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1054,6 +1074,7 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
         m_Player2_Fire = m_Player2.FindAction("Fire", throwIfNotFound: true);
         m_Player2_Melee = m_Player2.FindAction("Melee", throwIfNotFound: true);
         m_Player2_Dash = m_Player2.FindAction("Dash", throwIfNotFound: true);
+        m_Player2_Shotgun = m_Player2.FindAction("Shotgun", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1316,6 +1337,7 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player2_Fire;
     private readonly InputAction m_Player2_Melee;
     private readonly InputAction m_Player2_Dash;
+    private readonly InputAction m_Player2_Shotgun;
     public struct Player2Actions
     {
         private @CharacterInput m_Wrapper;
@@ -1325,6 +1347,7 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
         public InputAction @Fire => m_Wrapper.m_Player2_Fire;
         public InputAction @Melee => m_Wrapper.m_Player2_Melee;
         public InputAction @Dash => m_Wrapper.m_Player2_Dash;
+        public InputAction @Shotgun => m_Wrapper.m_Player2_Shotgun;
         public InputActionMap Get() { return m_Wrapper.m_Player2; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1349,6 +1372,9 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
             @Dash.started += instance.OnDash;
             @Dash.performed += instance.OnDash;
             @Dash.canceled += instance.OnDash;
+            @Shotgun.started += instance.OnShotgun;
+            @Shotgun.performed += instance.OnShotgun;
+            @Shotgun.canceled += instance.OnShotgun;
         }
 
         private void UnregisterCallbacks(IPlayer2Actions instance)
@@ -1368,6 +1394,9 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
             @Dash.started -= instance.OnDash;
             @Dash.performed -= instance.OnDash;
             @Dash.canceled -= instance.OnDash;
+            @Shotgun.started -= instance.OnShotgun;
+            @Shotgun.performed -= instance.OnShotgun;
+            @Shotgun.canceled -= instance.OnShotgun;
         }
 
         public void RemoveCallbacks(IPlayer2Actions instance)
@@ -1458,5 +1487,6 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
         void OnFire(InputAction.CallbackContext context);
         void OnMelee(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
+        void OnShotgun(InputAction.CallbackContext context);
     }
 }
