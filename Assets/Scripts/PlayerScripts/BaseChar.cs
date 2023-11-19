@@ -108,7 +108,7 @@ public class BaseChar : MonoBehaviour
 
 
 
-    private void Dash(InputAction.CallbackContext ctx)
+    public void Dash(InputAction.CallbackContext ctx)
     {
         if (movementScript.Concentration > 0.2f || movementScript.Stunned) return;
         if (dashCooldownTime > 0f) return;
