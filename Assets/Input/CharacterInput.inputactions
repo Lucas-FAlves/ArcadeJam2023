@@ -834,6 +834,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "BigArrow",
+                    "type": "Button",
+                    "id": "3109f4bd-ebdd-4967-9270-88bcd10737d4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -977,6 +986,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Shield",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e85af418-f74e-4c09-9e93-253ad57fb2c0",
+                    "path": "<Keyboard>/semicolon",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BigArrow",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
