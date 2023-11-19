@@ -847,6 +847,15 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Shield"",
+                    ""type"": ""Button"",
+                    ""id"": ""f2fba9c8-5ba9-4131-a22b-7ccd2333f609"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -981,6 +990,17 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
                     ""action"": ""Shotgun"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0c4c791d-6e3b-4f8a-bd2f-8a029e809830"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shield"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1075,6 +1095,7 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
         m_Player2_Melee = m_Player2.FindAction("Melee", throwIfNotFound: true);
         m_Player2_Dash = m_Player2.FindAction("Dash", throwIfNotFound: true);
         m_Player2_Shotgun = m_Player2.FindAction("Shotgun", throwIfNotFound: true);
+        m_Player2_Shield = m_Player2.FindAction("Shield", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1338,6 +1359,7 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player2_Melee;
     private readonly InputAction m_Player2_Dash;
     private readonly InputAction m_Player2_Shotgun;
+    private readonly InputAction m_Player2_Shield;
     public struct Player2Actions
     {
         private @CharacterInput m_Wrapper;
@@ -1348,6 +1370,7 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
         public InputAction @Melee => m_Wrapper.m_Player2_Melee;
         public InputAction @Dash => m_Wrapper.m_Player2_Dash;
         public InputAction @Shotgun => m_Wrapper.m_Player2_Shotgun;
+        public InputAction @Shield => m_Wrapper.m_Player2_Shield;
         public InputActionMap Get() { return m_Wrapper.m_Player2; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1375,6 +1398,9 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
             @Shotgun.started += instance.OnShotgun;
             @Shotgun.performed += instance.OnShotgun;
             @Shotgun.canceled += instance.OnShotgun;
+            @Shield.started += instance.OnShield;
+            @Shield.performed += instance.OnShield;
+            @Shield.canceled += instance.OnShield;
         }
 
         private void UnregisterCallbacks(IPlayer2Actions instance)
@@ -1397,6 +1423,9 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
             @Shotgun.started -= instance.OnShotgun;
             @Shotgun.performed -= instance.OnShotgun;
             @Shotgun.canceled -= instance.OnShotgun;
+            @Shield.started -= instance.OnShield;
+            @Shield.performed -= instance.OnShield;
+            @Shield.canceled -= instance.OnShield;
         }
 
         public void RemoveCallbacks(IPlayer2Actions instance)
@@ -1488,5 +1517,6 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
         void OnMelee(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
         void OnShotgun(InputAction.CallbackContext context);
+        void OnShield(InputAction.CallbackContext context);
     }
 }
