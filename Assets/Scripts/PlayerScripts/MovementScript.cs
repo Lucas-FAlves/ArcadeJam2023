@@ -20,7 +20,7 @@ public class MovementScript : MonoBehaviour
 
 
     //Serialized Private Variables
-    [SerializeField] private float maxSpeed = 4.5f;
+    public float maxSpeed = 4.5f;
     [SerializeField] private float acceleration = 10f;
     [SerializeField] private float deceleration = 10f;
     //[SerializeField] private LayerMask floorLayer;

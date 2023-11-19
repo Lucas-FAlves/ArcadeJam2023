@@ -20,15 +20,15 @@ public class Slow : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         MovementScript slowedPlayer = collision.GetComponent<MovementScript>();
-        //auxPlayerSpd = slowedPlayer.maxSpeed;
-        //slowedPlayer.maxSpeed = slowSpeed;
+        auxPlayerSpd = slowedPlayer.maxSpeed;
+        slowedPlayer.maxSpeed = slowSpeed;
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         MovementScript slowedPlayer = collision.GetComponent<MovementScript>();
-        //slowedPlayer.maxSpeed = auxPlayerSpd;
+        slowedPlayer.maxSpeed = auxPlayerSpd;
     }
 }
