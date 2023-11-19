@@ -2670,7 +2670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ef4918ec9f82c248929e72a53b23265, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  damage: 3
   shotgunAttackCooldownTime: 0
   initialShootAngle: 0
   shotgunAttackCooldown: 3
@@ -2721,6 +2721,30 @@ PrefabInstance:
     - target: {fileID: 1685926013782472124, guid: bd4068f90de522b489d17910d3b238df, type: 3}
       propertyPath: m_Name
       value: Shotgun
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767487551028986857, guid: bd4068f90de522b489d17910d3b238df, type: 3}
+      propertyPath: TrailModule.mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767487551028986857, guid: bd4068f90de522b489d17910d3b238df, type: 3}
+      propertyPath: SubModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767487551028986857, guid: bd4068f90de522b489d17910d3b238df, type: 3}
+      propertyPath: TrailModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767487551028986857, guid: bd4068f90de522b489d17910d3b238df, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1801255055867374636, guid: bd4068f90de522b489d17910d3b238df, type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3647510542817712622, guid: bd4068f90de522b489d17910d3b238df, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6285239357552937885, guid: bd4068f90de522b489d17910d3b238df, type: 3}
       propertyPath: m_LocalPosition.x
