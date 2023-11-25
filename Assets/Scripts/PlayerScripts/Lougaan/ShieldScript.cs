@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
+using UnityEngine.UIElements;
 
 public class ShieldScript : MonoBehaviour
 {
@@ -10,10 +13,12 @@ public class ShieldScript : MonoBehaviour
     
     private bool shieldActive;
     private float shieldCooldownTime = 0f;
-    [SerializeField] private float growthRate = 0.2f;
+    private float shieldCurrentTime = 0f;
+    [SerializeField] private float growthRate = 0.7f;
     [SerializeField] private float maxSize = 3.0f;
     [SerializeField] private float shieldCooldown = 5.0f;
     [SerializeField] private float shieldMaxSize = 3.0f;
+    [SerializeField] private float shieldMaxTime = 4.0f;
 
     private void OnEnable()
     {
@@ -56,7 +61,25 @@ public class ShieldScript : MonoBehaviour
                 // Apply the new scale to the GameObject
                 shieldGO.transform.localScale = new Vector3(newScale.x, newScale.y, 1f);
             }
+            else
+            {
+                Debug.Log("Escudo está no tamanho máximo");
+                shieldCurrentTime += Time.deltaTime;
+                Debug.Log(shieldCurrentTime);
+                if (shieldCurrentTime >= shieldMaxTime)
+                {
+                    Debug.Log("Escudo está desativado");
+                    shieldGO.transform.localScale = new Vector3(1f,1f,1f);
+                    shieldCurrentTime = 0f;
+                    shieldActive = false;
+                    shieldGO.SetActive(false);
+                }
+            }
 
+        }
+        else
+        {
+            shieldCooldownTime -= Time.deltaTime;
         }
     }
 

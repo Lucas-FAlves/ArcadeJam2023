@@ -876,6 +876,15 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""BigArrow"",
+                    ""type"": ""Button"",
+                    ""id"": ""3109f4bd-ebdd-4967-9270-88bcd10737d4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1021,6 +1030,17 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
                     ""action"": ""Shield"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e85af418-f74e-4c09-9e93-253ad57fb2c0"",
+                    ""path"": ""<Keyboard>/semicolon"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""BigArrow"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1117,6 +1137,7 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
         m_Player2_Dash = m_Player2.FindAction("Dash", throwIfNotFound: true);
         m_Player2_Shotgun = m_Player2.FindAction("Shotgun", throwIfNotFound: true);
         m_Player2_Shield = m_Player2.FindAction("Shield", throwIfNotFound: true);
+        m_Player2_BigArrow = m_Player2.FindAction("BigArrow", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1389,6 +1410,7 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player2_Dash;
     private readonly InputAction m_Player2_Shotgun;
     private readonly InputAction m_Player2_Shield;
+    private readonly InputAction m_Player2_BigArrow;
     public struct Player2Actions
     {
         private @CharacterInput m_Wrapper;
@@ -1400,6 +1422,7 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
         public InputAction @Dash => m_Wrapper.m_Player2_Dash;
         public InputAction @Shotgun => m_Wrapper.m_Player2_Shotgun;
         public InputAction @Shield => m_Wrapper.m_Player2_Shield;
+        public InputAction @BigArrow => m_Wrapper.m_Player2_BigArrow;
         public InputActionMap Get() { return m_Wrapper.m_Player2; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1430,6 +1453,9 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
             @Shield.started += instance.OnShield;
             @Shield.performed += instance.OnShield;
             @Shield.canceled += instance.OnShield;
+            @BigArrow.started += instance.OnBigArrow;
+            @BigArrow.performed += instance.OnBigArrow;
+            @BigArrow.canceled += instance.OnBigArrow;
         }
 
         private void UnregisterCallbacks(IPlayer2Actions instance)
@@ -1455,6 +1481,9 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
             @Shield.started -= instance.OnShield;
             @Shield.performed -= instance.OnShield;
             @Shield.canceled -= instance.OnShield;
+            @BigArrow.started -= instance.OnBigArrow;
+            @BigArrow.performed -= instance.OnBigArrow;
+            @BigArrow.canceled -= instance.OnBigArrow;
         }
 
         public void RemoveCallbacks(IPlayer2Actions instance)
@@ -1548,5 +1577,6 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
         void OnDash(InputAction.CallbackContext context);
         void OnShotgun(InputAction.CallbackContext context);
         void OnShield(InputAction.CallbackContext context);
+        void OnBigArrow(InputAction.CallbackContext context);
     }
 }
