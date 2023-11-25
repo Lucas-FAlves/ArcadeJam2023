@@ -71,6 +71,15 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SlowingDash"",
+                    ""type"": ""Button"",
+                    ""id"": ""ddd89948-2880-4724-8cc4-b4cea7bf40d8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -269,6 +278,17 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0325b77c-42e3-4a7e-b98d-45f12ebe0280"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SlowingDash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1095,6 +1115,7 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
         m_Player_Melee = m_Player.FindAction("Melee", throwIfNotFound: true);
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
+        m_Player_SlowingDash = m_Player.FindAction("SlowingDash", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1183,6 +1204,7 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Fire;
     private readonly InputAction m_Player_Melee;
     private readonly InputAction m_Player_Dash;
+    private readonly InputAction m_Player_SlowingDash;
     public struct PlayerActions
     {
         private @CharacterInput m_Wrapper;
@@ -1192,6 +1214,7 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
         public InputAction @Melee => m_Wrapper.m_Player_Melee;
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
+        public InputAction @SlowingDash => m_Wrapper.m_Player_SlowingDash;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1216,6 +1239,9 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
             @Dash.started += instance.OnDash;
             @Dash.performed += instance.OnDash;
             @Dash.canceled += instance.OnDash;
+            @SlowingDash.started += instance.OnSlowingDash;
+            @SlowingDash.performed += instance.OnSlowingDash;
+            @SlowingDash.canceled += instance.OnSlowingDash;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1235,6 +1261,9 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
             @Dash.started -= instance.OnDash;
             @Dash.performed -= instance.OnDash;
             @Dash.canceled -= instance.OnDash;
+            @SlowingDash.started -= instance.OnSlowingDash;
+            @SlowingDash.performed -= instance.OnSlowingDash;
+            @SlowingDash.canceled -= instance.OnSlowingDash;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1524,6 +1553,7 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
         void OnFire(InputAction.CallbackContext context);
         void OnMelee(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
+        void OnSlowingDash(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
