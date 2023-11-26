@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 5635719186267661751}
   - component: {fileID: 1533410577239701988}
   - component: {fileID: 5890689964330472210}
-  - component: {fileID: 5542560795943797364}
+  - component: {fileID: 2116839968619434631}
   m_Layer: 0
-  m_Name: DefaultArrow
+  m_Name: UltimateArrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 46aaa7a240679c947832853b7b2bdb9f, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.6419449, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -182,7 +182,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.35, y: 1.45}
   m_EdgeRadius: 0
---- !u!114 &5542560795943797364
+--- !u!114 &2116839968619434631
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -191,13 +191,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 841568316880445993}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85ed31467ba3e5b49a7681c716c1c3b5, type: 3}
+  m_Script: {fileID: 11500000, guid: b08221ce5c440b148a9affec4d09e857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _arrow: {fileID: 0}
-  _speed: 1
-  _damage: 1
-  _stuntTime: 1
 --- !u!1 &6785430373807398657
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,7 +417,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.94509804, b: 0.6392157, a: 1}
+      maxColor: {r: 0, g: 0.6431373, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
