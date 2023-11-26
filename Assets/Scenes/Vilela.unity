@@ -2413,6 +2413,7 @@ GameObject:
   - component: {fileID: 2146028483}
   - component: {fileID: 2146028484}
   - component: {fileID: 2146028485}
+  - component: {fileID: 2146028486}
   m_Layer: 8
   m_Name: Player2
   m_TagString: Untagged
@@ -2712,6 +2713,27 @@ MonoBehaviour:
   initialShootAngle: 10
   bigArrowCooldown: 5
   bigArrowCooldownTime: 0
+--- !u!114 &2146028486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146028474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa4c497e18e3ac2439db8b768a65e3c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shootSpeed: 0
+  _arrowFiringPoint: {fileID: 1907363770}
+  _ultArrowPrefab: {fileID: 2116839968619434631, guid: 2d4b07b4a9a91e240b448c3ec6fc212f, type: 3}
+  damage: 10
+  speed: 10
+  stunTime: 2
+  initialShootAngle: 10
+  ultArrowCooldown: 5
+  ultArrowCooldownTime: 0
 --- !u!1001 &4799855828017531915
 PrefabInstance:
   m_ObjectHideFlags: 0

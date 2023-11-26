@@ -15,8 +15,8 @@ public class LougaanUltimate : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float stunTime;
     [SerializeField] private float initialShootAngle = 10f;
-    [SerializeField] private float bigArrowCooldown = 5f;
-    public float bigArrowCooldownTime = 0f;
+    [SerializeField] private float ultArrowCooldown = 5f;
+    public float ultArrowCooldownTime = 0f;
 
     private void OnEnable()
     {
@@ -34,18 +34,31 @@ public class LougaanUltimate : MonoBehaviour
 
     private void Awake()
     {
-
+        baseChar = GetComponent<BaseChar>();
     }
 
 
     void Update()
     {
-
+        ultArrowCooldownTime -= Time.deltaTime;
     }
 
 
     public virtual void OnUltimatePerformed(InputAction.CallbackContext context)
     {
-
+        if (ultArrowCooldownTime > 0 || baseChar.MovementScript.Stunned) return;
+        if (context.performed)
+        {
+            Debug.Log("Disparou flecha");
+            Quaternion rotation = Quaternion.Euler(0f, 0f, 90f);
+            UltimateArrow newArrow = Instantiate(_ultArrowPrefab, _arrowFiringPoint.position, rotation);
+            _shootDirection = baseChar.MovementScript.FacingDirection;
+            newArrow.Shoot(_shootDirection, damage, stunTime);
+            //Shoot(shootAngle - (initialShootAngle),damage, stunTime);
+        }
+        else if (context.canceled)
+        {
+            ultArrowCooldownTime = ultArrowCooldown;
+        }
     }
 }
