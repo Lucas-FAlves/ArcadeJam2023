@@ -68,7 +68,7 @@ public class BigArrowScript : MonoBehaviour
         }
         else if (context.canceled)
         {
-
+            bigArrowCooldownTime = bigArrowCooldown;
         }
     }
 }
