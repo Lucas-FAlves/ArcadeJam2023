@@ -97,9 +97,6 @@ public class BaseChar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-
-        
         dashCooldownTime -= Time.deltaTime;
 
     }
