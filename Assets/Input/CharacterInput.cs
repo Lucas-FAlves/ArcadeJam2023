@@ -80,6 +80,15 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""StrongMelee"",
+                    ""type"": ""Button"",
+                    ""id"": ""61c74cb4-cd7e-4ae6-b88e-902933cb9139"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -289,6 +298,17 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""SlowingDash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2ff06e23-e697-4be8-9638-921057599763"",
+                    ""path"": ""<Keyboard>/#(Q)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""StrongMelee"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1116,6 +1136,7 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
         m_Player_Melee = m_Player.FindAction("Melee", throwIfNotFound: true);
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_SlowingDash = m_Player.FindAction("SlowingDash", throwIfNotFound: true);
+        m_Player_StrongMelee = m_Player.FindAction("StrongMelee", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1205,6 +1226,7 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Melee;
     private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_SlowingDash;
+    private readonly InputAction m_Player_StrongMelee;
     public struct PlayerActions
     {
         private @CharacterInput m_Wrapper;
@@ -1215,6 +1237,7 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
         public InputAction @Melee => m_Wrapper.m_Player_Melee;
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
         public InputAction @SlowingDash => m_Wrapper.m_Player_SlowingDash;
+        public InputAction @StrongMelee => m_Wrapper.m_Player_StrongMelee;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1242,6 +1265,9 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
             @SlowingDash.started += instance.OnSlowingDash;
             @SlowingDash.performed += instance.OnSlowingDash;
             @SlowingDash.canceled += instance.OnSlowingDash;
+            @StrongMelee.started += instance.OnStrongMelee;
+            @StrongMelee.performed += instance.OnStrongMelee;
+            @StrongMelee.canceled += instance.OnStrongMelee;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1264,6 +1290,9 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
             @SlowingDash.started -= instance.OnSlowingDash;
             @SlowingDash.performed -= instance.OnSlowingDash;
             @SlowingDash.canceled -= instance.OnSlowingDash;
+            @StrongMelee.started -= instance.OnStrongMelee;
+            @StrongMelee.performed -= instance.OnStrongMelee;
+            @StrongMelee.canceled -= instance.OnStrongMelee;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1554,6 +1583,7 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
         void OnMelee(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
         void OnSlowingDash(InputAction.CallbackContext context);
+        void OnStrongMelee(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

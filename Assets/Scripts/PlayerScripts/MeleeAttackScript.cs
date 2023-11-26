@@ -85,7 +85,7 @@ public class MeleeAttackScript : MonoBehaviour
                 }
 
                 baseChar.MovementScript.UnStun();
-                
+                baseMeleeDamage = 10f;
                 attacking = false;
             }
         }
@@ -122,5 +122,19 @@ public class MeleeAttackScript : MonoBehaviour
 
     #endregion
 
+    //fazendo o StrongMeleeAttack
+    public void StrongMelee(float damage){
+        if(baseChar.MovementScript.Stunned) return;
 
+        attacking = true;
+        baseChar.MovementScript.Stun(0.3f);
+        if ((baseChar.MovementScript.otherPlayer.position - transform.position).magnitude > meleeCorrectionMinDistance)
+        {
+            meleeCorrectionSpeedFallOff = Mathf.InverseLerp(meleeCorrectionMinDistance, meleeCorrectionDistance, (baseChar.MovementScript.otherPlayer.position - transform.position).magnitude);
+
+            baseChar.MovementScript.ApplyForce((baseChar.MovementScript.otherPlayer.position - transform.position).normalized * meleeCorrectionSpeed * meleeCorrectionSpeedFallOff);
+        }
+        baseMeleeDamage = damage;
+        attackSequenceTimer = attackSequenceTime;
+    }
 }
