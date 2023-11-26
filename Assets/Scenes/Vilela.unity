@@ -897,6 +897,8 @@ GameObject:
   - component: {fileID: 932883675}
   - component: {fileID: 932883676}
   - component: {fileID: 932883677}
+  - component: {fileID: 932883678}
+  - component: {fileID: 932883679}
   m_Layer: 7
   m_Name: Player1
   m_TagString: Player
@@ -1109,6 +1111,36 @@ MonoBehaviour:
   damage: 3
   initialShootAngle: 10
   rangedAttackCooldown: 1
+--- !u!114 &932883678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932883670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcc0366f72534f440a5f02401d2fb49e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
+  meleeAttackCooldownTime: 0
+  meleeAttackCooldown: 3
+--- !u!114 &932883679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932883670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76fcbc4547f76544db0ccbc2a6889cc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockbackResistenceTime: 0
+  resisCooldown: 8
+  resisCooldownTime: 0
 --- !u!1 &989403708
 GameObject:
   m_ObjectHideFlags: 0
