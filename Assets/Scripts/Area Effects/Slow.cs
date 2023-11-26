@@ -4,10 +4,24 @@ using UnityEngine;
 
 public class Slow : MonoBehaviour
 {
+    [SerializeField] BaseChar baseChar;
+
+    public GameObject player;
+
+    [SerializeField] MovementScript slowedPlayer;
+
     [SerializeField] private float slowSpeed;
     [SerializeField] private float areaLife;
     private float timer;
     private float auxPlayerSpd;
+
+    private void Awake()
+    {
+        //baseChar = player.GetComponent<BaseChar>();
+        //slowedPlayer = baseChar.MovementScript.otherPlayer.GetComponent<MovementScript>();
+        //auxPlayerSpd = slowedPlayer.maxSpeed;
+    }
+
     private void Start()
     {
         timer = areaLife;
@@ -20,15 +34,16 @@ public class Slow : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void OnTriggerStay2D(Collider2D collision)
+
+/*
+    private void FixedUpdate()
     {
-        MovementScript slowedPlayer = collision.GetComponent<MovementScript>();
-        auxPlayerSpd = slowedPlayer.maxSpeed;
-        slowedPlayer.maxSpeed = slowSpeed;
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        MovementScript slowedPlayer = collision.GetComponent<MovementScript>();
-        slowedPlayer.maxSpeed = auxPlayerSpd;
-    }
+        if((baseChar.MovementScript.otherPlayer.position - transform.position).magnitude < transform.localScale.x/2){
+            Debug.Log("Slow");
+            slowedPlayer.maxSpeed = slowSpeed;
+        }else{
+            slowedPlayer.maxSpeed = auxPlayerSpd;
+        }
+
+    }*/
 }

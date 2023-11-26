@@ -67,6 +67,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "KnockbackResistence",
+                    "type": "Button",
+                    "id": "ed256060-1a48-4d4b-9746-a056276081ae",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -205,7 +214,7 @@
                 {
                     "name": "",
                     "id": "05f6913d-c316-48b2-a6bb-e225f14c7960",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -287,6 +296,17 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "StrongMelee",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5b5fea12-aca3-4ec2-b478-75e3fb43a899",
+                    "path": "<Keyboard>/#(F)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "KnockbackResistence",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -1008,7 +1028,7 @@
                 {
                     "name": "",
                     "id": "d956060d-9ace-4c83-a7a6-4e21653459b7",
-                    "path": "<Keyboard>/enter",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -1019,7 +1039,7 @@
                 {
                     "name": "",
                     "id": "00b65bca-c8d1-48db-99bd-4c6a1cdd6b23",
-                    "path": "<Keyboard>/p",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -1030,7 +1050,7 @@
                 {
                     "name": "",
                     "id": "0c4c791d-6e3b-4f8a-bd2f-8a029e809830",
-                    "path": "<Keyboard>/i",
+                    "path": "<Keyboard>/rightShift",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -1041,7 +1061,7 @@
                 {
                     "name": "",
                     "id": "e85af418-f74e-4c09-9e93-253ad57fb2c0",
-                    "path": "<Keyboard>/k",
+                    "path": "<Keyboard>/numpad1",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -1052,7 +1072,7 @@
                 {
                     "name": "",
                     "id": "d2a0576a-2cd2-4e0b-b0a0-80d78e470134",
-                    "path": "<Keyboard>/semicolon",
+                    "path": "<Keyboard>/numpad4",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

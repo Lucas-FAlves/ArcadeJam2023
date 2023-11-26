@@ -89,6 +89,15 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""KnockbackResistence"",
+                    ""type"": ""Button"",
+                    ""id"": ""ed256060-1a48-4d4b-9746-a056276081ae"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -227,7 +236,7 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""05f6913d-c316-48b2-a6bb-e225f14c7960"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
@@ -309,6 +318,17 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""StrongMelee"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5b5fea12-aca3-4ec2-b478-75e3fb43a899"",
+                    ""path"": ""<Keyboard>/#(F)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""KnockbackResistence"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1030,7 +1050,7 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d956060d-9ace-4c83-a7a6-4e21653459b7"",
-                    ""path"": ""<Keyboard>/enter"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -1041,7 +1061,7 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""00b65bca-c8d1-48db-99bd-4c6a1cdd6b23"",
-                    ""path"": ""<Keyboard>/p"",
+                    ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
@@ -1052,7 +1072,7 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""0c4c791d-6e3b-4f8a-bd2f-8a029e809830"",
-                    ""path"": ""<Keyboard>/i"",
+                    ""path"": ""<Keyboard>/rightShift"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -1063,7 +1083,7 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""e85af418-f74e-4c09-9e93-253ad57fb2c0"",
-                    ""path"": ""<Keyboard>/k"",
+                    ""path"": ""<Keyboard>/numpad1"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -1074,7 +1094,7 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d2a0576a-2cd2-4e0b-b0a0-80d78e470134"",
-                    ""path"": ""<Keyboard>/semicolon"",
+                    ""path"": ""<Keyboard>/numpad4"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -1157,6 +1177,7 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_SlowingDash = m_Player.FindAction("SlowingDash", throwIfNotFound: true);
         m_Player_StrongMelee = m_Player.FindAction("StrongMelee", throwIfNotFound: true);
+        m_Player_KnockbackResistence = m_Player.FindAction("KnockbackResistence", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1248,6 +1269,7 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_SlowingDash;
     private readonly InputAction m_Player_StrongMelee;
+    private readonly InputAction m_Player_KnockbackResistence;
     public struct PlayerActions
     {
         private @CharacterInput m_Wrapper;
@@ -1259,6 +1281,7 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
         public InputAction @SlowingDash => m_Wrapper.m_Player_SlowingDash;
         public InputAction @StrongMelee => m_Wrapper.m_Player_StrongMelee;
+        public InputAction @KnockbackResistence => m_Wrapper.m_Player_KnockbackResistence;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1289,6 +1312,9 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
             @StrongMelee.started += instance.OnStrongMelee;
             @StrongMelee.performed += instance.OnStrongMelee;
             @StrongMelee.canceled += instance.OnStrongMelee;
+            @KnockbackResistence.started += instance.OnKnockbackResistence;
+            @KnockbackResistence.performed += instance.OnKnockbackResistence;
+            @KnockbackResistence.canceled += instance.OnKnockbackResistence;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1314,6 +1340,9 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
             @StrongMelee.started -= instance.OnStrongMelee;
             @StrongMelee.performed -= instance.OnStrongMelee;
             @StrongMelee.canceled -= instance.OnStrongMelee;
+            @KnockbackResistence.started -= instance.OnKnockbackResistence;
+            @KnockbackResistence.performed -= instance.OnKnockbackResistence;
+            @KnockbackResistence.canceled -= instance.OnKnockbackResistence;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1613,6 +1642,7 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
         void OnDash(InputAction.CallbackContext context);
         void OnSlowingDash(InputAction.CallbackContext context);
         void OnStrongMelee(InputAction.CallbackContext context);
+        void OnKnockbackResistence(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

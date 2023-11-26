@@ -19,6 +19,7 @@ public class MovementScript : MonoBehaviour
     private BaseChar _baseChar;
 
 
+
     //Serialized Private Variables
     [SerializeField] public float maxSpeed = 4.5f;
     [SerializeField] private float acceleration = 10f;
